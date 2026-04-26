@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Mail, Briefcase, Share2, Code2 } from 'lucide-react';
+import logo from '../../assets/Jobrythm.png';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -35,9 +36,7 @@ const Footer = () => {
           {/* Brand */}
           <div className="lg:col-span-2">
             <Link to="/" className="inline-block mb-4">
-              <span className="text-2xl font-bold text-white">
-                Job<span className="text-electric-400">rhythm</span>
-              </span>
+              <img src={logo} alt="Jobrythm" className="h-8 w-auto brightness-0 invert" />
             </Link>
             <p className="text-sm text-gray-400 mb-4 max-w-md">
               Win more work. Protect your margins. Quoting, job costing, invoicing, and cashflow clarity in one workflow for trades businesses.

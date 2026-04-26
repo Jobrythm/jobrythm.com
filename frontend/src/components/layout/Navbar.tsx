@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import logo from '../../assets/Jobrythm.png';
 import Button from '../ui/Button';
 
 const Navbar = () => {
@@ -24,9 +25,7 @@ const Navbar = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center">
-            <span className="text-2xl font-bold text-navy-800">
-              Job<span className="text-electric-500">rhythm</span>
-            </span>
+            <img src={logo} alt="Jobrythm" className="h-8 w-auto" />
           </Link>
 
           {/* Desktop Navigation */}
