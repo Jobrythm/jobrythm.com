@@ -1,5 +1,5 @@
 import { apiClient } from './api';
-import type { Page, PageWithSections, PageSection, StrapiResponse, StrapiCollectionResponse } from '../types/strapi';
+import type { Page, PageWithSections, StrapiResponse, StrapiCollectionResponse } from '../types/strapi';
 
 export const pagesService = {
   // Get all pages
@@ -19,7 +19,7 @@ export const pagesService = {
         }
       );
       
-      return response.data[0] || null;
+      return response.data[0]?.attributes || null;
     } catch (error) {
       console.error('Error fetching page:', error);
       return null;

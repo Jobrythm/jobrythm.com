@@ -1,5 +1,5 @@
 import { apiClient } from './api';
-import type { Setting, StrapiResponse, StrapiCollectionResponse } from '../types/strapi';
+import type { Setting, StrapiCollectionResponse } from '../types/strapi';
 
 export const settingsService = {
   // Get all settings

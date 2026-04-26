@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Mail, Linkedin, Twitter, Github } from 'lucide-react';
+import { Mail, Briefcase, Share2, Code2 } from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -23,9 +23,9 @@ const Footer = () => {
 
   const socialLinks = [
     { name: 'Email', icon: Mail, href: 'mailto:hello@jobrythm.aricummings.com' },
-    { name: 'LinkedIn', icon: Linkedin, href: '#' },
-    { name: 'Twitter', icon: Twitter, href: '#' },
-    { name: 'GitHub', icon: Github, href: '#' },
+    { name: 'LinkedIn', icon: Briefcase, href: '#' },
+    { name: 'Twitter', icon: Share2, href: '#' },
+    { name: 'GitHub', icon: Code2, href: '#' },
   ];
 
   return (
