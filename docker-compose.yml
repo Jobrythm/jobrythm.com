@@ -1,0 +1,86 @@
+version: '3.8'
+
+services:
+  # PostgreSQL Database
+  database:
+    image: postgres:15-alpine
+    container_name: jobrythm_database
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${DATABASE_NAME:-strapi}
+      POSTGRES_USER: ${DATABASE_USERNAME:-strapi}
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD:-strapi}
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    networks:
+      - jobrythm_network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U strapi"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Strapi CMS
+  strapi:
+    build:
+      context: ./strapi
+      dockerfile: Dockerfile
+    container_name: jobrythm_strapi
+    restart: unless-stopped
+    environment:
+      DATABASE_CLIENT: postgres
+      DATABASE_HOST: database
+      DATABASE_PORT: 5432
+      DATABASE_NAME: ${DATABASE_NAME:-strapi}
+      DATABASE_USERNAME: ${DATABASE_USERNAME:-strapi}
+      DATABASE_PASSWORD: ${DATABASE_PASSWORD:-strapi}
+      DATABASE_SSL: false
+      HOST: 0.0.0.0
+      PORT: 1337
+      APP_KEYS: ${APP_KEYS:-key1,key2,key3,key4}
+      API_TOKEN_SALT: ${API_TOKEN_SALT:-tokensalt}
+      ADMIN_JWT_SECRET: ${ADMIN_JWT_SECRET:-adminjwtsecret}
+      TRANSFER_TOKEN_SALT: ${TRANSFER_TOKEN_SALT:-transfersalt}
+      JWT_SECRET: ${JWT_SECRET:-jwtsecret}
+      NODE_ENV: production
+    volumes:
+      - strapi_uploads:/app/public/uploads
+      - ./strapi:/app
+      - /app/node_modules
+      - /app/.cache
+      - /app/build
+    ports:
+      - "1337:1337"
+    depends_on:
+      database:
+        condition: service_healthy
+    networks:
+      - jobrythm_network
+
+  # Frontend (React)
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: jobrythm_frontend
+    restart: unless-stopped
+    environment:
+      VITE_API_URL: ${VITE_API_URL:-http://localhost:1337}
+      VITE_STRAPI_URL: http://strapi:1337
+    ports:
+      - "80:80"
+      - "443:443"
+    depends_on:
+      - strapi
+    networks:
+      - jobrythm_network
+
+volumes:
+  db_data:
+    driver: local
+  strapi_uploads:
+    driver: local
+
+networks:
+  jobrythm_network:
+    driver: bridge

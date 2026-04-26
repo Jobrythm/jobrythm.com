@@ -1,7 +1,29 @@
-# CMS Architecture Plan for Jobrythm Marketing Site
+# CMS Architecture - Strapi Implementation
 
 ## Overview
-Transform the static React marketing site into a full-stack CMS with admin panel, enabling dynamic content management, drag-and-drop page building, and configurable settings.
+We're using Strapi headless CMS instead of building a custom CMS from scratch. This provides:
+- ✅ Production-ready admin panel
+- ✅ Built-in drag & drop content builder
+- ✅ User authentication & permissions
+- ✅ Media library
+- ✅ API generation
+- ✅ PostgreSQL support
+- ✅ Docker ready
+- ✅ Well maintained & documented
+
+## Architecture Decision
+
+**Original Plan**: Custom Express + TypeScript backend with custom admin panel using Tabler template (~2 weeks development)
+
+**Final Decision**: Strapi CMS (~2-3 days integration)
+
+**Rationale**:
+- Faster time to market
+- Production-tested and battle-hardened
+- Active community and regular updates
+- All required features out of the box
+- Lower maintenance burden
+- Better security (regular patches)
 
 ## Technology Stack
 
