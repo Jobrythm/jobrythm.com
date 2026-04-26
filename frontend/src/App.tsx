@@ -12,11 +12,18 @@ import PrivacyPage from './pages/PrivacyPage';
 import TermsPage from './pages/TermsPage';
 import NotFoundPage from './pages/NotFoundPage';
 import AdminPage from './pages/admin/AdminPage';
+import { usePageTracking } from './hooks/usePageTracking';
+
+function AnalyticsTracker() {
+  usePageTracking();
+  return null;
+}
 
 function App() {
   return (
     <DomainProvider>
       <Router>
+        <AnalyticsTracker />
         <Routes>
           <Route path="/admin-page/*" element={<AdminPage />} />
           <Route element={<Layout />}>
