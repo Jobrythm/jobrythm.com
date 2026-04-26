@@ -4,8 +4,10 @@ import { Check, HelpCircle, X } from 'lucide-react';
 import Button from '../components/ui/Button';
 import Card from '../components/ui/Card';
 import Container from '../components/ui/Container';
+import { useDomain } from '../contexts/DomainContext';
 
 const PricingPage = () => {
+  const { signupUrl } = useDomain();
   const [isAnnual, setIsAnnual] = useState(false);
 
   const plans = [
@@ -147,25 +149,25 @@ const PricingPage = () => {
   ];
 
   return (
-    <div className="bg-white">
+    <div className="bg-navy-900">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-navy-50 to-white py-20 lg:py-32">
+      <section className="bg-gradient-to-br from-navy-800 to-navy-900 py-20 lg:py-32">
         <Container>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             className="text-center max-w-4xl mx-auto"
           >
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-navy-900 mb-6">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
               Simple, transparent pricing
             </h1>
-            <p className="text-xl text-navy-600 mb-8">
+            <p className="text-xl text-gray-300 mb-8">
               Choose the plan that fits your business. All plans include a 14-day free trial.
             </p>
 
             {/* Billing Toggle */}
             <div className="flex items-center justify-center space-x-4 mb-12">
-              <span className={`font-medium ${!isAnnual ? 'text-navy-900' : 'text-navy-500'}`}>
+              <span className={`font-medium ${!isAnnual ? 'text-white' : 'text-gray-400'}`}>
                 Monthly
               </span>
               <button
@@ -176,12 +178,12 @@ const PricingPage = () => {
                 aria-label="Toggle billing frequency"
               >
                 <span
-                  className={`inline-block h-6 w-6 transform rounded-full bg-white transition-transform ${
+                  className={`inline-block h-6 w-6 transform rounded-full bg-navy-900 transition-transform ${
                     isAnnual ? 'translate-x-7' : 'translate-x-1'
                   }`}
                 />
               </button>
-              <span className={`font-medium ${isAnnual ? 'text-navy-900' : 'text-navy-500'}`}>
+              <span className={`font-medium ${isAnnual ? 'text-white' : 'text-gray-400'}`}>
                 Annual
                 <span className="ml-2 text-sm text-electric-600 font-semibold">Save 20%</span>
               </span>
@@ -213,15 +215,15 @@ const PricingPage = () => {
                       </span>
                     </div>
                   )}
-                  <h3 className="text-2xl font-bold text-navy-900 mb-2">{plan.name}</h3>
-                  <p className="text-navy-600 mb-6">{plan.description}</p>
+                  <h3 className="text-2xl font-bold text-white mb-2">{plan.name}</h3>
+                  <p className="text-gray-300 mb-6">{plan.description}</p>
                   <div className="mb-6">
-                    <span className="text-5xl font-bold text-navy-900">
+                    <span className="text-5xl font-bold text-white">
                       ${isAnnual ? plan.annualPrice : plan.monthlyPrice}
                     </span>
-                    <span className="text-navy-600">/month</span>
+                    <span className="text-gray-300">/month</span>
                     {isAnnual && (
-                      <div className="mt-2 text-sm text-navy-600">
+                      <div className="mt-2 text-sm text-gray-300">
                         Billed annually (${plan.annualPrice * 12}/year)
                       </div>
                     )}
@@ -230,17 +232,17 @@ const PricingPage = () => {
                     {plan.features.map((feature, featureIndex) => (
                       <li key={featureIndex} className="flex items-start space-x-3">
                         <Check className="text-electric-500 flex-shrink-0 mt-0.5" size={20} />
-                        <span className="text-navy-700">{feature}</span>
+                        <span className="text-gray-300">{feature}</span>
                       </li>
                     ))}
                     {plan.notIncluded.map((feature, featureIndex) => (
                       <li key={`not-${featureIndex}`} className="flex items-start space-x-3 opacity-40">
-                        <X className="text-navy-400 flex-shrink-0 mt-0.5" size={20} />
-                        <span className="text-navy-600">{feature}</span>
+                        <X className="text-gray-400 flex-shrink-0 mt-0.5" size={20} />
+                        <span className="text-gray-300">{feature}</span>
                       </li>
                     ))}
                   </ul>
-                  <a href="https://app.jobrythm.com/signup">
+                  <a href={signupUrl}>
                     <Button
                       fullWidth
                       variant={plan.featured ? 'primary' : 'outline'}
@@ -255,7 +257,7 @@ const PricingPage = () => {
           </div>
 
           <div className="text-center mt-12">
-            <p className="text-navy-600 mb-4">Need help choosing?</p>
+            <p className="text-gray-300 mb-4">Need help choosing?</p>
             <a href="/contact">
               <Button variant="outline">Contact sales</Button>
             </a>
@@ -264,7 +266,7 @@ const PricingPage = () => {
       </section>
 
       {/* Feature Comparison Matrix */}
-      <section className="py-20 lg:py-32 bg-navy-50">
+      <section className="py-20 lg:py-32 bg-navy-800">
         <Container>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -272,10 +274,10 @@ const PricingPage = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-navy-900 mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
               Compare all features
             </h2>
-            <p className="text-xl text-navy-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
               See exactly what's included in each plan
             </p>
           </motion.div>
@@ -284,7 +286,7 @@ const PricingPage = () => {
             <div className="overflow-x-auto">
               <table className="w-full">
                 <thead>
-                  <tr className="border-b border-gray-200 bg-navy-900 text-white">
+                  <tr className="border-b border-navy-700 bg-navy-900 text-white">
                     <th className="text-left p-6 font-semibold">Features</th>
                     <th className="text-center p-6 font-semibold">Starter</th>
                     <th className="text-center p-6 font-semibold">Pro</th>
@@ -294,14 +296,14 @@ const PricingPage = () => {
                 <tbody>
                   {featureComparison.map((category, categoryIndex) => (
                     <>
-                      <tr key={`category-${categoryIndex}`} className="bg-navy-50">
-                        <td colSpan={4} className="p-4 font-bold text-navy-900">
+                      <tr key={`category-${categoryIndex}`} className="bg-navy-800">
+                        <td colSpan={4} className="p-4 font-bold text-white">
                           {category.category}
                         </td>
                       </tr>
                       {category.features.map((feature, featureIndex) => (
                         <tr key={featureIndex} className="border-b border-gray-100">
-                          <td className="p-4 text-navy-700">{feature.name}</td>
+                          <td className="p-4 text-gray-300">{feature.name}</td>
                           <td className="p-4 text-center">
                             {typeof feature.starter === 'boolean' ? (
                               feature.starter ? (
@@ -310,7 +312,7 @@ const PricingPage = () => {
                                 <X className="text-gray-300 mx-auto" size={20} />
                               )
                             ) : (
-                              <span className="text-navy-700">{feature.starter}</span>
+                              <span className="text-gray-300">{feature.starter}</span>
                             )}
                           </td>
                           <td className="p-4 text-center">
@@ -321,7 +323,7 @@ const PricingPage = () => {
                                 <X className="text-gray-300 mx-auto" size={20} />
                               )
                             ) : (
-                              <span className="text-navy-700">{feature.pro}</span>
+                              <span className="text-gray-300">{feature.pro}</span>
                             )}
                           </td>
                           <td className="p-4 text-center">
@@ -332,7 +334,7 @@ const PricingPage = () => {
                                 <X className="text-gray-300 mx-auto" size={20} />
                               )
                             ) : (
-                              <span className="text-navy-700">{feature.team}</span>
+                              <span className="text-gray-300">{feature.team}</span>
                             )}
                           </td>
                         </tr>
@@ -355,10 +357,10 @@ const PricingPage = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-navy-900 mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
               Frequently asked questions
             </h2>
-            <p className="text-xl text-navy-600">
+            <p className="text-xl text-gray-300">
               Have a question? We're here to help.
             </p>
           </motion.div>
@@ -373,19 +375,19 @@ const PricingPage = () => {
                 transition={{ delay: index * 0.05 }}
                 className="group"
               >
-                <summary className="flex items-start justify-between cursor-pointer bg-white p-6 rounded-2xl shadow-md border border-gray-100 hover:shadow-lg transition-shadow">
-                  <span className="font-semibold text-navy-900 pr-8">{faq.question}</span>
+                <summary className="flex items-start justify-between cursor-pointer bg-navy-900 p-6 rounded-2xl shadow-md border border-gray-100 hover:shadow-lg transition-shadow">
+                  <span className="font-semibold text-white pr-8">{faq.question}</span>
                   <HelpCircle className="flex-shrink-0 text-electric-500 group-open:rotate-180 transition-transform" size={24} />
                 </summary>
-                <div className="mt-4 p-6 bg-navy-50 rounded-2xl">
-                  <p className="text-navy-700">{faq.answer}</p>
+                <div className="mt-4 p-6 bg-navy-800 rounded-2xl">
+                  <p className="text-gray-300">{faq.answer}</p>
                 </div>
               </motion.details>
             ))}
           </div>
 
           <div className="text-center mt-12">
-            <p className="text-navy-600 mb-4">Still have questions?</p>
+            <p className="text-gray-300 mb-4">Still have questions?</p>
             <a href="/contact">
               <Button variant="outline">Contact us</Button>
             </a>
@@ -408,7 +410,7 @@ const PricingPage = () => {
             <p className="text-xl text-gray-300 mb-8">
               Join trades teams who are growing profitably with Jobrythm. No credit card required.
             </p>
-            <a href="https://app.jobrythm.com/signup">
+            <a href={signupUrl}>
               <Button size="lg">Start your free trial</Button>
             </a>
           </motion.div>

@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { useDomain } from '../contexts/DomainContext';
 import {
   FileText,
   Calculator,
@@ -18,6 +19,7 @@ import Card from '../components/ui/Card';
 import Container from '../components/ui/Container';
 
 const HomePage = () => {
+  const { signupUrl } = useDomain();
   const features = [
     {
       icon: FileText,
@@ -131,9 +133,9 @@ const HomePage = () => {
   ];
 
   return (
-    <div className="bg-white">
+    <div className="bg-navy-900">
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-navy-50 to-white py-20 lg:py-32">
+      <section className="relative overflow-hidden bg-gradient-to-br from-navy-800 to-navy-900 py-20 lg:py-32">
         <Container>
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div
@@ -141,22 +143,22 @@ const HomePage = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
             >
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-navy-900 leading-tight mb-6">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
                 Win more work. <br />
                 <span className="text-electric-500">Protect your margins.</span>
               </h1>
-              <p className="text-xl text-navy-600 mb-8">
+              <p className="text-xl text-gray-300 mb-8">
                 Quoting, job costing, invoicing, and cashflow clarity in one workflow. Built for trades teams who want to grow profitably.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 mb-6">
-                <a href="https://app.jobrythm.com/signup">
+                <a href={signupUrl}>
                   <Button size="lg">Start free</Button>
                 </a>
                 <Link to="/book-demo">
                   <Button size="lg" variant="outline">Book a demo</Button>
                 </Link>
               </div>
-              <p className="text-sm text-navy-500">No credit card required</p>
+              <p className="text-sm text-gray-400">No credit card required</p>
             </motion.div>
 
             {/* Mock App Screenshot */}
@@ -166,9 +168,9 @@ const HomePage = () => {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="relative"
             >
-              <div className="bg-white rounded-2xl shadow-2xl p-6 border border-gray-200">
+              <div className="bg-navy-900 rounded-2xl shadow-2xl p-6 border border-navy-700">
                 <div className="space-y-4">
-                  <div className="flex items-center justify-between pb-4 border-b border-gray-200">
+                  <div className="flex items-center justify-between pb-4 border-b border-navy-700">
                     <div className="flex items-center space-x-2">
                       <div className="w-3 h-3 bg-red-400 rounded-full"></div>
                       <div className="w-3 h-3 bg-yellow-400 rounded-full"></div>
@@ -188,9 +190,9 @@ const HomePage = () => {
                       <div className="h-4 bg-gray-100 rounded w-5/6"></div>
                       <div className="h-4 bg-gray-100 rounded w-4/6"></div>
                     </div>
-                    <div className="pt-4 border-t border-gray-200 flex justify-between items-center">
-                      <span className="text-sm text-navy-600">Total</span>
-                      <span className="text-2xl font-bold text-navy-900">$12,450</span>
+                    <div className="pt-4 border-t border-navy-700 flex justify-between items-center">
+                      <span className="text-sm text-gray-300">Total</span>
+                      <span className="text-2xl font-bold text-white">$12,450</span>
                     </div>
                   </div>
                 </div>
@@ -225,10 +227,10 @@ const HomePage = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-navy-900 mb-6">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
               Stop losing money to guesswork
             </h2>
-            <p className="text-xl text-navy-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
               Traditional methods leave trades teams stressed and unprofitable. Jobrythm gives you clarity and control.
             </p>
           </motion.div>
@@ -254,10 +256,10 @@ const HomePage = () => {
                     Problem
                   </span>
                 </div>
-                <h3 className="text-xl font-bold text-navy-900 mb-4">{item.problem}</h3>
+                <h3 className="text-xl font-bold text-white mb-4">{item.problem}</h3>
                 <div className="flex items-start space-x-2 text-electric-600">
                   <ArrowRight className="flex-shrink-0 mt-1" size={20} />
-                  <p className="text-navy-700">{item.solution}</p>
+                  <p className="text-gray-300">{item.solution}</p>
                 </div>
               </Card>
             ))}
@@ -266,7 +268,7 @@ const HomePage = () => {
       </section>
 
       {/* Feature Highlights Grid */}
-      <section className="py-20 lg:py-32 bg-navy-50">
+      <section className="py-20 lg:py-32 bg-navy-800">
         <Container>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -274,10 +276,10 @@ const HomePage = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-navy-900 mb-6">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
               Everything you need to run your trades business
             </h2>
-            <p className="text-xl text-navy-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
               From quote to payment, Jobrythm keeps you organized and profitable.
             </p>
           </motion.div>
@@ -290,8 +292,8 @@ const HomePage = () => {
                   <div className="w-12 h-12 bg-electric-100 rounded-xl flex items-center justify-center mb-6">
                     <Icon className="text-electric-600" size={24} />
                   </div>
-                  <h3 className="text-xl font-bold text-navy-900 mb-3">{feature.title}</h3>
-                  <p className="text-navy-600">{feature.description}</p>
+                  <h3 className="text-xl font-bold text-white mb-3">{feature.title}</h3>
+                  <p className="text-gray-300">{feature.description}</p>
                 </Card>
               );
             })}
@@ -308,10 +310,10 @@ const HomePage = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-navy-900 mb-6">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
               How it works
             </h2>
-            <p className="text-xl text-navy-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
               Simple workflow. Powerful results.
             </p>
           </motion.div>
@@ -327,8 +329,8 @@ const HomePage = () => {
                 className="relative"
               >
                 <div className="text-6xl font-bold text-electric-100 mb-4">{step.number}</div>
-                <h3 className="text-2xl font-bold text-navy-900 mb-4">{step.title}</h3>
-                <p className="text-navy-600">{step.description}</p>
+                <h3 className="text-2xl font-bold text-white mb-4">{step.title}</h3>
+                <p className="text-gray-300">{step.description}</p>
                 {index < steps.length - 1 && (
                   <div className="hidden md:block absolute top-12 left-full w-full h-0.5 bg-electric-200 -ml-4">
                     <ArrowRight className="absolute right-0 top-1/2 -translate-y-1/2 text-electric-400" size={24} />
@@ -367,7 +369,7 @@ const HomePage = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 text-center"
+                  className="bg-navy-900/10 backdrop-blur-sm rounded-2xl p-8 text-center"
                 >
                   <Icon className="mx-auto mb-4" size={48} />
                   <p className="text-2xl font-bold">{benefit.label}</p>
@@ -387,10 +389,10 @@ const HomePage = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-navy-900 mb-6">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
               Loved by trades teams
             </h2>
-            <p className="text-xl text-navy-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
               Fictional testimonials for illustrative purposes
             </p>
           </motion.div>
@@ -398,11 +400,11 @@ const HomePage = () => {
           <div className="grid md:grid-cols-3 gap-8">
             {testimonials.map((testimonial, index) => (
               <Card key={index} className="p-8">
-                <p className="text-navy-700 mb-6 italic">"{testimonial.quote}"</p>
+                <p className="text-gray-300 mb-6 italic">"{testimonial.quote}"</p>
                 <div>
-                  <p className="font-bold text-navy-900">{testimonial.author}</p>
-                  <p className="text-sm text-navy-600">{testimonial.role}</p>
-                  <p className="text-sm text-navy-500">{testimonial.company}</p>
+                  <p className="font-bold text-white">{testimonial.author}</p>
+                  <p className="text-sm text-gray-300">{testimonial.role}</p>
+                  <p className="text-sm text-gray-400">{testimonial.company}</p>
                 </div>
               </Card>
             ))}
@@ -411,7 +413,7 @@ const HomePage = () => {
       </section>
 
       {/* Pricing Teaser */}
-      <section className="py-20 lg:py-32 bg-navy-50">
+      <section className="py-20 lg:py-32 bg-navy-800">
         <Container>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -419,10 +421,10 @@ const HomePage = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-navy-900 mb-6">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
               Simple, transparent pricing
             </h2>
-            <p className="text-xl text-navy-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
               Choose the plan that fits your business
             </p>
           </motion.div>
@@ -440,21 +442,21 @@ const HomePage = () => {
                     </span>
                   </div>
                 )}
-                <h3 className="text-2xl font-bold text-navy-900 mb-2">{plan.name}</h3>
-                <p className="text-navy-600 mb-6">{plan.description}</p>
+                <h3 className="text-2xl font-bold text-white mb-2">{plan.name}</h3>
+                <p className="text-gray-300 mb-6">{plan.description}</p>
                 <div className="mb-6">
-                  <span className="text-4xl font-bold text-navy-900">{plan.price}</span>
-                  <span className="text-navy-600">{plan.period}</span>
+                  <span className="text-4xl font-bold text-white">{plan.price}</span>
+                  <span className="text-gray-300">{plan.period}</span>
                 </div>
                 <ul className="space-y-3 mb-8">
                   {plan.features.map((feature, featureIndex) => (
                     <li key={featureIndex} className="flex items-start space-x-2">
                       <Check className="text-electric-500 flex-shrink-0 mt-0.5" size={20} />
-                      <span className="text-navy-700">{feature}</span>
+                      <span className="text-gray-300">{feature}</span>
                     </li>
                   ))}
                 </ul>
-                <a href="https://app.jobrythm.com/signup">
+                <a href={signupUrl}>
                   <Button
                     fullWidth
                     variant={plan.featured ? 'primary' : 'outline'}
@@ -492,11 +494,11 @@ const HomePage = () => {
               Join hundreds of trades teams who are growing profitably with Jobrythm.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="https://app.jobrythm.com/signup">
+              <a href={signupUrl}>
                 <Button size="lg">Start free today</Button>
               </a>
               <Link to="/book-demo">
-                <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-navy-900">
+                <Button size="lg" variant="outline" className="border-white text-white hover:bg-navy-900 hover:text-white">
                   Book a demo
                 </Button>
               </Link>

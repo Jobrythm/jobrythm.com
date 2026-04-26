@@ -141,19 +141,19 @@ const PrivacyPage = () => {
   ];
 
   return (
-    <div className="bg-white">
+    <div className="bg-navy-900">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-navy-50 to-white py-20 lg:py-32">
+      <section className="bg-gradient-to-br from-navy-800 to-navy-900 py-20 lg:py-32">
         <Container>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             className="text-center max-w-4xl mx-auto"
           >
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-navy-900 mb-6">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
               Privacy Policy
             </h1>
-            <p className="text-xl text-navy-600">
+            <p className="text-xl text-gray-300">
               Last updated: {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
             </p>
           </motion.div>
@@ -169,31 +169,31 @@ const PrivacyPage = () => {
             transition={{ delay: 0.2 }}
             className="prose prose-lg max-w-none"
           >
-            <div className="mb-12 p-6 bg-navy-50 rounded-2xl">
-              <p className="text-navy-700 mb-0">
+            <div className="mb-12 p-6 bg-navy-800 rounded-2xl">
+              <p className="text-gray-300 mb-0">
                 At Jobrythm, we take your privacy seriously. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our platform. Please read this policy carefully. If you do not agree with the terms of this privacy policy, please do not access our services.
               </p>
             </div>
 
             {sections.map((section, index) => (
               <div key={index} className="mb-12">
-                <h2 className="text-2xl font-bold text-navy-900 mb-6">{section.title}</h2>
+                <h2 className="text-2xl font-bold text-white mb-6">{section.title}</h2>
                 {section.content.map((item, itemIndex) => (
                   <div key={itemIndex} className="mb-6">
                     {item.subtitle && (
                       <h3 className="text-xl font-semibold text-navy-800 mb-3">{item.subtitle}</h3>
                     )}
-                    <p className="text-navy-700 leading-relaxed">{item.text}</p>
+                    <p className="text-gray-300 leading-relaxed">{item.text}</p>
                   </div>
                 ))}
               </div>
             ))}
 
             <div className="mt-12 p-6 bg-electric-50 rounded-2xl border border-electric-200">
-              <p className="text-navy-700 mb-4">
+              <p className="text-gray-300 mb-4">
                 <strong>Questions or concerns?</strong>
               </p>
-              <p className="text-navy-700 mb-0">
+              <p className="text-gray-300 mb-0">
                 If you have any questions or concerns about this privacy policy or our data practices, please contact us at{' '}
                 <a href="mailto:hello@jobrythm.aricummings.com" className="text-electric-600 hover:text-electric-700 font-medium">
                   hello@jobrythm.aricummings.com

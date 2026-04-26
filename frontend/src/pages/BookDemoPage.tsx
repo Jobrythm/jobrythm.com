@@ -4,8 +4,10 @@ import { Calendar, CheckCircle2 } from 'lucide-react';
 import Button from '../components/ui/Button';
 import Card from '../components/ui/Card';
 import Container from '../components/ui/Container';
+import { useDomain } from '../contexts/DomainContext';
 
 const BookDemoPage = () => {
+  const { signupUrl } = useDomain();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -77,9 +79,9 @@ const BookDemoPage = () => {
   ];
 
   return (
-    <div className="bg-white">
+    <div className="bg-navy-900">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-navy-50 to-white py-20 lg:py-32">
+      <section className="bg-gradient-to-br from-navy-800 to-navy-900 py-20 lg:py-32">
         <Container>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -89,10 +91,10 @@ const BookDemoPage = () => {
             <div className="w-16 h-16 bg-electric-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
               <Calendar className="text-electric-600" size={32} />
             </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-navy-900 mb-6">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
               See Jobrythm in action
             </h1>
-            <p className="text-xl text-navy-600">
+            <p className="text-xl text-gray-300">
               Book a personalized demo and discover how Jobrythm can transform your trades business.
             </p>
           </motion.div>
@@ -113,11 +115,11 @@ const BookDemoPage = () => {
                   <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mb-6">
                     <CheckCircle2 className="text-green-600" size={40} />
                   </div>
-                  <h2 className="text-3xl font-bold text-navy-900 mb-4">Demo booked!</h2>
-                  <p className="text-xl text-navy-600 mb-2">
+                  <h2 className="text-3xl font-bold text-white mb-4">Demo booked!</h2>
+                  <p className="text-xl text-gray-300 mb-2">
                     Thank you for your interest in Jobrythm.
                   </p>
-                  <p className="text-navy-600 max-w-md">
+                  <p className="text-gray-300 max-w-md">
                     We'll follow up within 1 business day to schedule your personalized demo.
                   </p>
                   <div className="mt-8">
@@ -129,8 +131,8 @@ const BookDemoPage = () => {
               ) : (
                 <>
                   <div className="text-center mb-8">
-                    <h2 className="text-3xl font-bold text-navy-900 mb-4">Book your demo</h2>
-                    <p className="text-navy-600">
+                    <h2 className="text-3xl font-bold text-white mb-4">Book your demo</h2>
+                    <p className="text-gray-300">
                       Fill out the form below and we'll be in touch to schedule a time that works for you.
                     </p>
                   </div>
@@ -138,7 +140,7 @@ const BookDemoPage = () => {
                   <form onSubmit={handleSubmit} className="space-y-6">
                     <div className="grid md:grid-cols-2 gap-6">
                       <div>
-                        <label htmlFor="name" className="block text-sm font-medium text-navy-900 mb-2">
+                        <label htmlFor="name" className="block text-sm font-medium text-white mb-2">
                           Name *
                         </label>
                         <input
@@ -158,7 +160,7 @@ const BookDemoPage = () => {
                       </div>
 
                       <div>
-                        <label htmlFor="email" className="block text-sm font-medium text-navy-900 mb-2">
+                        <label htmlFor="email" className="block text-sm font-medium text-white mb-2">
                           Email *
                         </label>
                         <input
@@ -180,7 +182,7 @@ const BookDemoPage = () => {
 
                     <div className="grid md:grid-cols-2 gap-6">
                       <div>
-                        <label htmlFor="phone" className="block text-sm font-medium text-navy-900 mb-2">
+                        <label htmlFor="phone" className="block text-sm font-medium text-white mb-2">
                           Phone *
                         </label>
                         <input
@@ -200,7 +202,7 @@ const BookDemoPage = () => {
                       </div>
 
                       <div>
-                        <label htmlFor="company" className="block text-sm font-medium text-navy-900 mb-2">
+                        <label htmlFor="company" className="block text-sm font-medium text-white mb-2">
                           Company *
                         </label>
                         <input
@@ -221,7 +223,7 @@ const BookDemoPage = () => {
                     </div>
 
                     <div>
-                      <label htmlFor="teamSize" className="block text-sm font-medium text-navy-900 mb-2">
+                      <label htmlFor="teamSize" className="block text-sm font-medium text-white mb-2">
                         Team Size *
                       </label>
                       <select
@@ -246,7 +248,7 @@ const BookDemoPage = () => {
                     </div>
 
                     <div>
-                      <label htmlFor="message" className="block text-sm font-medium text-navy-900 mb-2">
+                      <label htmlFor="message" className="block text-sm font-medium text-white mb-2">
                         Message (Optional)
                       </label>
                       <textarea
@@ -260,8 +262,8 @@ const BookDemoPage = () => {
                       />
                     </div>
 
-                    <div className="bg-navy-50 p-4 rounded-lg">
-                      <p className="text-sm text-navy-700">
+                    <div className="bg-navy-800 p-4 rounded-lg">
+                      <p className="text-sm text-gray-300">
                         <strong>What to expect:</strong> We'll follow up within 1 business day to schedule your 30-minute personalized demo at a time that works for you.
                       </p>
                     </div>
@@ -270,10 +272,10 @@ const BookDemoPage = () => {
                       Book demo
                     </Button>
 
-                    <p className="text-center text-sm text-navy-600">
+                    <p className="text-center text-sm text-gray-300">
                       Prefer to try it yourself first?{' '}
                       <a
-                        href="https://app.jobrythm.com/signup"
+                        href={signupUrl}
                         className="text-electric-600 hover:text-electric-700 font-medium"
                       >
                         Start your free trial
@@ -289,7 +291,7 @@ const BookDemoPage = () => {
 
       {/* What You'll Learn */}
       {!submitted && (
-        <section className="py-20 lg:py-32 bg-navy-50">
+        <section className="py-20 lg:py-32 bg-navy-800">
           <Container>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -297,10 +299,10 @@ const BookDemoPage = () => {
               viewport={{ once: true }}
               className="text-center mb-16"
             >
-              <h2 className="text-3xl md:text-4xl font-bold text-navy-900 mb-6">
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
                 What you'll learn in the demo
               </h2>
-              <p className="text-xl text-navy-600 max-w-3xl mx-auto">
+              <p className="text-xl text-gray-300 max-w-3xl mx-auto">
                 We'll customize the demo to focus on what matters most to your business
               </p>
             </motion.div>
@@ -321,8 +323,8 @@ const BookDemoPage = () => {
                 },
               ].map((item, index) => (
                 <Card key={index} className="p-8 text-center">
-                  <h3 className="text-xl font-bold text-navy-900 mb-3">{item.title}</h3>
-                  <p className="text-navy-600">{item.description}</p>
+                  <h3 className="text-xl font-bold text-white mb-3">{item.title}</h3>
+                  <p className="text-gray-300">{item.description}</p>
                 </Card>
               ))}
             </div>

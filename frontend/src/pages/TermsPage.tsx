@@ -112,19 +112,19 @@ const TermsPage = () => {
   ];
 
   return (
-    <div className="bg-white">
+    <div className="bg-navy-900">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-navy-50 to-white py-20 lg:py-32">
+      <section className="bg-gradient-to-br from-navy-800 to-navy-900 py-20 lg:py-32">
         <Container>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             className="text-center max-w-4xl mx-auto"
           >
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-navy-900 mb-6">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
               Terms of Service
             </h1>
-            <p className="text-xl text-navy-600">
+            <p className="text-xl text-gray-300">
               Last updated: {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
             </p>
           </motion.div>
@@ -140,15 +140,15 @@ const TermsPage = () => {
             transition={{ delay: 0.2 }}
             className="prose prose-lg max-w-none"
           >
-            <div className="mb-12 p-6 bg-navy-50 rounded-2xl">
-              <p className="text-navy-700 mb-0">
+            <div className="mb-12 p-6 bg-navy-800 rounded-2xl">
+              <p className="text-gray-300 mb-0">
                 Welcome to Jobrythm. These Terms of Service ("Terms") govern your use of our platform and services. By using Jobrythm, you agree to these terms. Please read them carefully.
               </p>
             </div>
 
             {sections.map((section, index) => (
               <div key={index} className="mb-12">
-                <h2 className="text-2xl font-bold text-navy-900 mb-6">{section.title}</h2>
+                <h2 className="text-2xl font-bold text-white mb-6">{section.title}</h2>
                 {section.subsections ? (
                   <div className="space-y-6">
                     {section.subsections.map((subsection, subIndex) => (
@@ -156,21 +156,21 @@ const TermsPage = () => {
                         <h3 className="text-xl font-semibold text-navy-800 mb-3">
                           {subsection.subtitle}
                         </h3>
-                        <p className="text-navy-700 leading-relaxed">{subsection.text}</p>
+                        <p className="text-gray-300 leading-relaxed">{subsection.text}</p>
                       </div>
                     ))}
                   </div>
                 ) : (
-                  <p className="text-navy-700 leading-relaxed">{section.content}</p>
+                  <p className="text-gray-300 leading-relaxed">{section.content}</p>
                 )}
               </div>
             ))}
 
             <div className="mt-12 p-6 bg-electric-50 rounded-2xl border border-electric-200">
-              <p className="text-navy-700 mb-4">
+              <p className="text-gray-300 mb-4">
                 <strong>Questions about these terms?</strong>
               </p>
-              <p className="text-navy-700 mb-0">
+              <p className="text-gray-300 mb-0">
                 If you have any questions about these Terms of Service, please contact us at{' '}
                 <a href="mailto:hello@jobrythm.aricummings.com" className="text-electric-600 hover:text-electric-700 font-medium">
                   hello@jobrythm.aricummings.com

@@ -4,8 +4,10 @@ import { Mail, MapPin, Phone, CheckCircle2 } from 'lucide-react';
 import Button from '../components/ui/Button';
 import Card from '../components/ui/Card';
 import Container from '../components/ui/Container';
+import { useDomain } from '../contexts/DomainContext';
 
 const ContactPage = () => {
+  const { signupUrl } = useDomain();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -82,19 +84,19 @@ const ContactPage = () => {
   ];
 
   return (
-    <div className="bg-white">
+    <div className="bg-navy-900">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-navy-50 to-white py-20 lg:py-32">
+      <section className="bg-gradient-to-br from-navy-800 to-navy-900 py-20 lg:py-32">
         <Container>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             className="text-center max-w-4xl mx-auto"
           >
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-navy-900 mb-6">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
               Get in touch
             </h1>
-            <p className="text-xl text-navy-600">
+            <p className="text-xl text-gray-300">
               Have questions? We're here to help. Send us a message and we'll respond as soon as possible.
             </p>
           </motion.div>
@@ -122,16 +124,16 @@ const ContactPage = () => {
                           <Icon className="text-electric-600" size={24} />
                         </div>
                         <div>
-                          <h3 className="font-semibold text-navy-900 mb-1">{info.title}</h3>
+                          <h3 className="font-semibold text-white mb-1">{info.title}</h3>
                           {info.link ? (
                             <a
                               href={info.link}
-                              className="text-navy-600 hover:text-electric-500 transition-colors"
+                              className="text-gray-300 hover:text-electric-500 transition-colors"
                             >
                               {info.content}
                             </a>
                           ) : (
-                            <p className="text-navy-600">{info.content}</p>
+                            <p className="text-gray-300">{info.content}</p>
                           )}
                         </div>
                       </div>
@@ -147,14 +149,14 @@ const ContactPage = () => {
                   Start your free trial or book a demo with our team.
                 </p>
                 <div className="space-y-3">
-                  <a href="https://app.jobrythm.com/signup" className="block">
+                  <a href={signupUrl} className="block">
                     <Button fullWidth size="sm">Start free trial</Button>
                   </a>
                   <a href="/book-demo" className="block">
                     <Button
                       fullWidth
                       size="sm"
-                      className="bg-white text-navy-900 hover:bg-gray-100"
+                      className="bg-navy-900 text-white hover:bg-gray-100"
                     >
                       Book a demo
                     </Button>
@@ -171,15 +173,15 @@ const ContactPage = () => {
               className="lg:col-span-2"
             >
               <Card className="p-8">
-                <h2 className="text-2xl font-bold text-navy-900 mb-6">Send us a message</h2>
+                <h2 className="text-2xl font-bold text-white mb-6">Send us a message</h2>
 
                 {submitted ? (
                   <div className="flex flex-col items-center justify-center py-12 text-center">
                     <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-4">
                       <CheckCircle2 className="text-green-600" size={32} />
                     </div>
-                    <h3 className="text-2xl font-bold text-navy-900 mb-2">Message sent!</h3>
-                    <p className="text-navy-600">
+                    <h3 className="text-2xl font-bold text-white mb-2">Message sent!</h3>
+                    <p className="text-gray-300">
                       Thank you for reaching out. We'll get back to you soon.
                     </p>
                   </div>
@@ -187,7 +189,7 @@ const ContactPage = () => {
                   <form onSubmit={handleSubmit} className="space-y-6">
                     <div className="grid md:grid-cols-2 gap-6">
                       <div>
-                        <label htmlFor="name" className="block text-sm font-medium text-navy-900 mb-2">
+                        <label htmlFor="name" className="block text-sm font-medium text-white mb-2">
                           Name *
                         </label>
                         <input
@@ -207,7 +209,7 @@ const ContactPage = () => {
                       </div>
 
                       <div>
-                        <label htmlFor="email" className="block text-sm font-medium text-navy-900 mb-2">
+                        <label htmlFor="email" className="block text-sm font-medium text-white mb-2">
                           Email *
                         </label>
                         <input
@@ -228,7 +230,7 @@ const ContactPage = () => {
                     </div>
 
                     <div>
-                      <label htmlFor="company" className="block text-sm font-medium text-navy-900 mb-2">
+                      <label htmlFor="company" className="block text-sm font-medium text-white mb-2">
                         Company
                       </label>
                       <input
@@ -243,7 +245,7 @@ const ContactPage = () => {
                     </div>
 
                     <div>
-                      <label htmlFor="message" className="block text-sm font-medium text-navy-900 mb-2">
+                      <label htmlFor="message" className="block text-sm font-medium text-white mb-2">
                         Message *
                       </label>
                       <textarea

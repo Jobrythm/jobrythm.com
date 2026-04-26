@@ -3,8 +3,10 @@ import { Shield, Lock, Server, Eye, CheckCircle2, FileCheck } from 'lucide-react
 import Button from '../components/ui/Button';
 import Card from '../components/ui/Card';
 import Container from '../components/ui/Container';
+import { useDomain } from '../contexts/DomainContext';
 
 const SecurityPage = () => {
+  const { signupUrl } = useDomain();
   const securityFeatures = [
     {
       icon: Lock,
@@ -77,9 +79,9 @@ const SecurityPage = () => {
   ];
 
   return (
-    <div className="bg-white">
+    <div className="bg-navy-900">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-navy-50 to-white py-20 lg:py-32">
+      <section className="bg-gradient-to-br from-navy-800 to-navy-900 py-20 lg:py-32">
         <Container>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -89,10 +91,10 @@ const SecurityPage = () => {
             <div className="w-16 h-16 bg-electric-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
               <Shield className="text-electric-600" size={32} />
             </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-navy-900 mb-6">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
               Your data is secure with us
             </h1>
-            <p className="text-xl text-navy-600">
+            <p className="text-xl text-gray-300">
               We take security seriously. Your business data is protected with enterprise-grade security measures.
             </p>
           </motion.div>
@@ -108,10 +110,10 @@ const SecurityPage = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-navy-900 mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
               Enterprise-grade security
             </h2>
-            <p className="text-xl text-navy-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
               Built with security at every layer
             </p>
           </motion.div>
@@ -124,8 +126,8 @@ const SecurityPage = () => {
                   <div className="w-12 h-12 bg-electric-100 rounded-xl flex items-center justify-center mb-6">
                     <Icon className="text-electric-600" size={24} />
                   </div>
-                  <h3 className="text-xl font-bold text-navy-900 mb-3">{feature.title}</h3>
-                  <p className="text-navy-600">{feature.description}</p>
+                  <h3 className="text-xl font-bold text-white mb-3">{feature.title}</h3>
+                  <p className="text-gray-300">{feature.description}</p>
                 </Card>
               );
             })}
@@ -134,7 +136,7 @@ const SecurityPage = () => {
       </section>
 
       {/* Data Protection */}
-      <section className="py-20 lg:py-32 bg-navy-50">
+      <section className="py-20 lg:py-32 bg-navy-800">
         <Container>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -142,10 +144,10 @@ const SecurityPage = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-navy-900 mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
               Data protection
             </h2>
-            <p className="text-xl text-navy-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
               Transparency about how we handle your data
             </p>
           </motion.div>
@@ -153,12 +155,12 @@ const SecurityPage = () => {
           <div className="grid md:grid-cols-3 gap-8">
             {dataProtection.map((section, index) => (
               <Card key={index} className="p-8">
-                <h3 className="text-xl font-bold text-navy-900 mb-4">{section.title}</h3>
+                <h3 className="text-xl font-bold text-white mb-4">{section.title}</h3>
                 <ul className="space-y-3">
                   {section.items.map((item, itemIndex) => (
                     <li key={itemIndex} className="flex items-start space-x-2">
                       <CheckCircle2 className="text-electric-500 flex-shrink-0 mt-0.5" size={20} />
-                      <span className="text-navy-700">{item}</span>
+                      <span className="text-gray-300">{item}</span>
                     </li>
                   ))}
                 </ul>
@@ -177,10 +179,10 @@ const SecurityPage = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-3xl md:text-4xl font-bold text-navy-900 mb-6">
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
                 Built on reliable infrastructure
               </h2>
-              <div className="space-y-4 text-navy-700">
+              <div className="space-y-4 text-gray-300">
                 <p>
                   Jobrythm is hosted on enterprise-grade cloud infrastructure with multiple availability zones for redundancy and high availability.
                 </p>
@@ -221,7 +223,7 @@ const SecurityPage = () => {
                 <h3 className="text-2xl font-bold mb-4">Certifications & Compliance</h3>
                 <div className="grid grid-cols-2 gap-4">
                   {certifications.map((cert, index) => (
-                    <div key={index} className="bg-white/10 rounded-lg p-4 text-center">
+                    <div key={index} className="bg-navy-900/10 rounded-lg p-4 text-center">
                       <CheckCircle2 className="text-electric-400 mx-auto mb-2" size={24} />
                       <p className="text-sm font-medium">{cert}</p>
                     </div>
@@ -234,7 +236,7 @@ const SecurityPage = () => {
       </section>
 
       {/* Security Practices */}
-      <section className="py-20 lg:py-32 bg-navy-50">
+      <section className="py-20 lg:py-32 bg-navy-800">
         <Container>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -242,17 +244,17 @@ const SecurityPage = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-navy-900 mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
               Security best practices
             </h2>
-            <p className="text-xl text-navy-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
               We follow industry standards to keep your data safe
             </p>
           </motion.div>
 
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             <Card className="p-8">
-              <h3 className="text-xl font-bold text-navy-900 mb-4">For our platform</h3>
+              <h3 className="text-xl font-bold text-white mb-4">For our platform</h3>
               <ul className="space-y-3">
                 {[
                   'Regular security updates and patches',
@@ -264,14 +266,14 @@ const SecurityPage = () => {
                 ].map((item, index) => (
                   <li key={index} className="flex items-start space-x-2">
                     <CheckCircle2 className="text-electric-500 flex-shrink-0 mt-0.5" size={20} />
-                    <span className="text-navy-700">{item}</span>
+                    <span className="text-gray-300">{item}</span>
                   </li>
                 ))}
               </ul>
             </Card>
 
             <Card className="p-8">
-              <h3 className="text-xl font-bold text-navy-900 mb-4">For you</h3>
+              <h3 className="text-xl font-bold text-white mb-4">For you</h3>
               <ul className="space-y-3">
                 {[
                   'Strong password requirements',
@@ -283,7 +285,7 @@ const SecurityPage = () => {
                 ].map((item, index) => (
                   <li key={index} className="flex items-start space-x-2">
                     <CheckCircle2 className="text-electric-500 flex-shrink-0 mt-0.5" size={20} />
-                    <span className="text-navy-700">{item}</span>
+                    <span className="text-gray-300">{item}</span>
                   </li>
                 ))}
               </ul>
@@ -308,10 +310,10 @@ const SecurityPage = () => {
                   Contact security team
                 </Button>
               </a>
-              <a href="https://app.jobrythm.com/signup">
+              <a href={signupUrl}>
                 <Button
                   size="lg"
-                  className="bg-white text-electric-600 hover:bg-gray-100"
+                  className="bg-navy-900 text-electric-600 hover:bg-gray-100"
                 >
                   Start secure trial
                 </Button>

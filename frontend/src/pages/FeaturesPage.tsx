@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { useDomain } from '../contexts/DomainContext';
 import {
   FileText,
   Calculator,
@@ -18,6 +19,7 @@ import Card from '../components/ui/Card';
 import Container from '../components/ui/Container';
 
 const FeaturesPage = () => {
+  const { signupUrl } = useDomain();
   const features = [
     {
       icon: FileText,
@@ -205,22 +207,22 @@ const FeaturesPage = () => {
   };
 
   return (
-    <div className="bg-white">
+    <div className="bg-navy-900">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-navy-50 to-white py-20 lg:py-32">
+      <section className="bg-gradient-to-br from-navy-800 to-navy-900 py-20 lg:py-32">
         <Container>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             className="text-center max-w-4xl mx-auto"
           >
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-navy-900 mb-6">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
               Everything you need to manage your trades business
             </h1>
-            <p className="text-xl text-navy-600 mb-8">
+            <p className="text-xl text-gray-300 mb-8">
               From quote to payment, Jobrythm streamlines your entire workflow so you can focus on what you do best.
             </p>
-            <a href="https://app.jobrythm.com/signup">
+            <a href={signupUrl}>
               <Button size="lg">Start free trial</Button>
             </a>
           </motion.div>
@@ -248,22 +250,22 @@ const FeaturesPage = () => {
                     <div className="w-16 h-16 bg-electric-100 rounded-2xl flex items-center justify-center mb-6">
                       <Icon className="text-electric-600" size={32} />
                     </div>
-                    <h2 className="text-3xl md:text-4xl font-bold text-navy-900 mb-4">
+                    <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
                       {feature.title}
                     </h2>
-                    <p className="text-xl text-navy-600 mb-8">{feature.description}</p>
+                    <p className="text-xl text-gray-300 mb-8">{feature.description}</p>
                     <ul className="space-y-3">
                       {feature.benefits.map((benefit, benefitIndex) => (
                         <li key={benefitIndex} className="flex items-start space-x-3">
                           <CheckCircle2 className="text-electric-500 flex-shrink-0 mt-0.5" size={20} />
-                          <span className="text-navy-700">{benefit}</span>
+                          <span className="text-gray-300">{benefit}</span>
                         </li>
                       ))}
                     </ul>
                   </div>
                   <div className={!isEven ? 'lg:col-start-1 lg:row-start-1' : ''}>
-                    <Card className="p-8 bg-navy-50">
-                      <div className="aspect-video bg-white rounded-xl flex items-center justify-center">
+                    <Card className="p-8 bg-navy-800">
+                      <div className="aspect-video bg-navy-900 rounded-xl flex items-center justify-center">
                         <Icon className="text-navy-300" size={64} />
                       </div>
                     </Card>
@@ -276,7 +278,7 @@ const FeaturesPage = () => {
       </section>
 
       {/* Comparison Table */}
-      <section className="py-20 lg:py-32 bg-navy-50">
+      <section className="py-20 lg:py-32 bg-navy-800">
         <Container>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -284,10 +286,10 @@ const FeaturesPage = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-navy-900 mb-6">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
               Spreadsheets vs Jobrythm
             </h2>
-            <p className="text-xl text-navy-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
               See why modern trades teams are moving beyond spreadsheets
             </p>
           </motion.div>
@@ -296,18 +298,18 @@ const FeaturesPage = () => {
             <div className="overflow-x-auto">
               <table className="w-full">
                 <thead>
-                  <tr className="border-b border-gray-200">
-                    <th className="text-left p-6 text-navy-900 font-semibold">Feature</th>
-                    <th className="text-center p-6 text-navy-900 font-semibold">Spreadsheets</th>
+                  <tr className="border-b border-navy-700">
+                    <th className="text-left p-6 text-white font-semibold">Feature</th>
+                    <th className="text-center p-6 text-white font-semibold">Spreadsheets</th>
                     <th className="text-center p-6 text-electric-600 font-semibold">Jobrythm</th>
                   </tr>
                 </thead>
                 <tbody>
                   {comparison.categories.map((category, index) => (
                     <tr key={index} className="border-b border-gray-100 last:border-b-0">
-                      <td className="p-6 text-navy-900 font-medium">{category}</td>
-                      <td className="p-6 text-center text-navy-600">{comparison.spreadsheets[index]}</td>
-                      <td className="p-6 text-center text-navy-900 font-medium bg-electric-50">
+                      <td className="p-6 text-white font-medium">{category}</td>
+                      <td className="p-6 text-center text-gray-300">{comparison.spreadsheets[index]}</td>
+                      <td className="p-6 text-center text-white font-medium bg-electric-50">
                         {comparison.jobrythm[index]}
                       </td>
                     </tr>
@@ -318,7 +320,7 @@ const FeaturesPage = () => {
           </Card>
 
           <div className="text-center mt-12">
-            <a href="https://app.jobrythm.com/signup">
+            <a href={signupUrl}>
               <Button size="lg">Make the switch today</Button>
             </a>
           </div>
@@ -336,7 +338,7 @@ const FeaturesPage = () => {
               Join trades teams who are saving time and increasing profits with Jobrythm.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="https://app.jobrythm.com/signup">
+              <a href={signupUrl}>
                 <Button size="lg" variant="secondary">
                   Start free trial
                 </Button>
@@ -344,7 +346,7 @@ const FeaturesPage = () => {
               <a href="/book-demo">
                 <Button
                   size="lg"
-                  className="bg-white text-electric-600 hover:bg-gray-100"
+                  className="bg-navy-900 text-electric-600 hover:bg-gray-100"
                 >
                   Book a demo
                 </Button>
