@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Shield, Lock, Server, Eye, CheckCircle2, FileCheck } from 'lucide-react';
+import { Shield, Lock, Server, Eye, CheckCircle2, Code2 } from 'lucide-react';
 import Button from '../components/ui/Button';
 import Card from '../components/ui/Card';
 import Container from '../components/ui/Container';
@@ -10,33 +10,33 @@ const SecurityPage = () => {
   const securityFeatures = [
     {
       icon: Lock,
-      title: 'Bank-Level Encryption',
-      description: 'All data is encrypted in transit (TLS 1.3) and at rest (AES-256) using industry-leading standards.',
-    },
-    {
-      icon: Server,
-      title: 'Secure Infrastructure',
-      description: 'Hosted on enterprise-grade cloud infrastructure with 99.9% uptime SLA and automated failover.',
-    },
-    {
-      icon: Eye,
-      title: 'Privacy First',
-      description: 'Your data is yours. We never sell or share your information with third parties.',
+      title: 'bcrypt Password Hashing',
+      description: 'All passwords are hashed using bcrypt before storage. Plain-text passwords are never stored or logged.',
     },
     {
       icon: Shield,
-      title: 'Regular Security Audits',
-      description: 'Third-party penetration testing and security audits conducted quarterly.',
+      title: 'JWT Authentication',
+      description: 'Session management uses signed JSON Web Tokens with short-lived access tokens and refresh token rotation.',
     },
     {
-      icon: FileCheck,
-      title: 'Compliance',
-      description: 'GDPR compliant and working toward SOC 2 Type II certification.',
+      icon: Server,
+      title: 'HTTP Security Headers',
+      description: 'Helmet.js enforces a strict Content-Security-Policy, X-Frame-Options, X-Content-Type-Options, and more on every response.',
+    },
+    {
+      icon: Eye,
+      title: 'Rate Limiting',
+      description: 'Authentication endpoints are rate-limited to 10 requests per minute per IP. All other API endpoints allow up to 100 requests per minute.',
+    },
+    {
+      icon: Code2,
+      title: 'Input Validation',
+      description: 'Every API request is validated with Zod schema checks before reaching the database, preventing malformed or malicious input.',
     },
     {
       icon: CheckCircle2,
-      title: 'Daily Backups',
-      description: 'Automated daily backups with point-in-time recovery and 30-day retention.',
+      title: 'SQL Injection Protection',
+      description: 'TypeORM with parameterized queries is used throughout. Raw SQL is never constructed from user input.',
     },
   ];
 
@@ -45,37 +45,40 @@ const SecurityPage = () => {
       title: 'What we collect',
       items: [
         'Business information (company name, address, etc.)',
-        'User account data (name, email, password)',
+        'User account data (name, email, hashed password)',
         'Usage data (features used, actions taken)',
-        'Payment information (processed by Stripe, not stored by us)',
+        'Payment information (processed by Stripe — we never store card data)',
       ],
     },
     {
       title: 'How we protect it',
       items: [
-        'Encrypted database storage',
-        'Secure API communication',
-        'Role-based access controls',
-        'Multi-factor authentication available',
-        'Regular security updates',
+        'bcrypt-hashed passwords (never stored in plain text)',
+        'JWT-based auth with refresh token rotation',
+        'Zod input validation on all API routes',
+        'Helmet.js HTTP security headers (CSP, HSTS, etc.)',
+        'CORS policy restricts origins to allowed domains',
+        'Rate limiting on all API and auth endpoints',
       ],
     },
     {
       title: 'Your rights',
       items: [
-        'Export your data at any time',
-        'Delete your account and data',
-        'Control who has access to your data',
-        'Receive notifications of any security incidents',
+        'Export your data at any time from account settings',
+        'Delete your account and associated data',
+        'Control who has access to your business data',
+        'Contact us about data concerns at any time',
       ],
     },
   ];
 
-  const certifications = [
-    'GDPR Compliant',
-    'SOC 2 Type II (in progress)',
-    'PCI DSS Compliant (via Stripe)',
-    'ISO 27001 Alignment',
+  const techStack = [
+    { label: 'Backend', value: 'TypeScript + Node.js + Express' },
+    { label: 'Database', value: 'PostgreSQL via TypeORM' },
+    { label: 'Auth', value: 'JWT + bcrypt' },
+    { label: 'Payments', value: 'Stripe (PCI DSS compliant)' },
+    { label: 'Infrastructure', value: 'Docker + Nginx' },
+    { label: 'Source Code', value: 'Open source on GitHub' },
   ];
 
   return (
@@ -94,9 +97,18 @@ const SecurityPage = () => {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
               Your data is secure with us
             </h1>
-            <p className="text-xl text-gray-300">
-              We take security seriously. Your business data is protected with enterprise-grade security measures.
+            <p className="text-xl text-gray-300 mb-4">
+              Jobrythm is built with security practices at every layer — and because the code is open source, you can verify that yourself.
             </p>
+            <a
+              href="https://github.com/Jobrythm"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-electric-400 hover:text-electric-300 transition-colors font-medium"
+            >
+              <Code2 size={18} />
+              View source on GitHub
+            </a>
           </motion.div>
         </Container>
       </section>
@@ -111,10 +123,10 @@ const SecurityPage = () => {
             className="text-center mb-16"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-              Enterprise-grade security
+              Security built into the platform
             </h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Built with security at every layer
+              Real protections, not just checkboxes
             </p>
           </motion.div>
 
@@ -170,7 +182,7 @@ const SecurityPage = () => {
         </Container>
       </section>
 
-      {/* Infrastructure */}
+      {/* Tech Stack */}
       <section className="py-20 lg:py-32">
         <Container>
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -180,35 +192,35 @@ const SecurityPage = () => {
               viewport={{ once: true }}
             >
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-                Built on reliable infrastructure
+                Open source infrastructure
               </h2>
               <div className="space-y-4 text-gray-300">
                 <p>
-                  Jobrythm is hosted on enterprise-grade cloud infrastructure with multiple availability zones for redundancy and high availability.
+                  Jobrythm is fully open source. Both the marketing site and the application backend are publicly available on GitHub under the Jobrythm organization. You can inspect every line of security-relevant code.
                 </p>
                 <p>
-                  Our infrastructure includes:
+                  The application is containerized with Docker and served behind an Nginx reverse proxy. The backend is a TypeScript/Express API backed by PostgreSQL.
                 </p>
                 <ul className="space-y-2 ml-4">
                   <li className="flex items-start space-x-2">
                     <CheckCircle2 className="text-electric-500 flex-shrink-0 mt-0.5" size={20} />
-                    <span>99.9% uptime SLA with automated monitoring</span>
+                    <span>CORS policy restricts cross-origin requests to allowed domains</span>
                   </li>
                   <li className="flex items-start space-x-2">
                     <CheckCircle2 className="text-electric-500 flex-shrink-0 mt-0.5" size={20} />
-                    <span>Automatic failover and disaster recovery</span>
+                    <span>Helmet.js sets security headers on every HTTP response</span>
                   </li>
                   <li className="flex items-start space-x-2">
                     <CheckCircle2 className="text-electric-500 flex-shrink-0 mt-0.5" size={20} />
-                    <span>DDoS protection and web application firewall</span>
+                    <span>Stripe handles all payment data — no card numbers touch our servers</span>
                   </li>
                   <li className="flex items-start space-x-2">
                     <CheckCircle2 className="text-electric-500 flex-shrink-0 mt-0.5" size={20} />
-                    <span>Real-time system health monitoring</span>
+                    <span>PostgreSQL with TypeORM parameterized queries prevents SQL injection</span>
                   </li>
                   <li className="flex items-start space-x-2">
                     <CheckCircle2 className="text-electric-500 flex-shrink-0 mt-0.5" size={20} />
-                    <span>24/7 security monitoring and incident response</span>
+                    <span>Docker container isolation for each service</span>
                   </li>
                 </ul>
               </div>
@@ -219,15 +231,26 @@ const SecurityPage = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <Card className="p-8 bg-navy-900 text-white">
-                <h3 className="text-2xl font-bold mb-4">Certifications & Compliance</h3>
-                <div className="grid grid-cols-2 gap-4">
-                  {certifications.map((cert, index) => (
-                    <div key={index} className="bg-navy-900/10 rounded-lg p-4 text-center">
-                      <CheckCircle2 className="text-electric-400 mx-auto mb-2" size={24} />
-                      <p className="text-sm font-medium">{cert}</p>
+              <Card className="p-8">
+                <h3 className="text-2xl font-bold text-white mb-6">Tech Stack</h3>
+                <div className="space-y-4">
+                  {techStack.map((item, index) => (
+                    <div key={index} className="flex justify-between items-center py-3 border-b border-navy-700 last:border-0">
+                      <span className="text-gray-400 text-sm font-medium">{item.label}</span>
+                      <span className="text-white text-sm font-semibold">{item.value}</span>
                     </div>
                   ))}
+                </div>
+                <div className="mt-6 pt-4">
+                  <a
+                    href="https://github.com/Jobrythm/jobrythm-fullstack"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-electric-400 hover:text-electric-300 transition-colors text-sm font-medium"
+                  >
+                    <Code2 size={16} />
+                    Inspect the app source code
+                  </a>
                 </div>
               </Card>
             </motion.div>
@@ -245,24 +268,24 @@ const SecurityPage = () => {
             className="text-center mb-16"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-              Security best practices
+              Security practices
             </h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              We follow industry standards to keep your data safe
+              What we do to keep the platform and your data safe
             </p>
           </motion.div>
 
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             <Card className="p-8">
-              <h3 className="text-xl font-bold text-white mb-4">For our platform</h3>
+              <h3 className="text-xl font-bold text-white mb-4">Platform security</h3>
               <ul className="space-y-3">
                 {[
-                  'Regular security updates and patches',
-                  'Code reviews and security testing',
-                  'Penetration testing by third parties',
-                  'Employee security training',
-                  'Incident response procedures',
-                  'Background checks for all staff',
+                  'Regular dependency updates and security patches',
+                  'Code is publicly reviewable on GitHub',
+                  'Input validation on every API endpoint (Zod)',
+                  'Parameterized database queries (no raw SQL)',
+                  'Rate limiting on authentication endpoints',
+                  'HTTP security headers via Helmet.js',
                 ].map((item, index) => (
                   <li key={index} className="flex items-start space-x-2">
                     <CheckCircle2 className="text-electric-500 flex-shrink-0 mt-0.5" size={20} />
@@ -273,15 +296,15 @@ const SecurityPage = () => {
             </Card>
 
             <Card className="p-8">
-              <h3 className="text-xl font-bold text-white mb-4">For you</h3>
+              <h3 className="text-xl font-bold text-white mb-4">Account security</h3>
               <ul className="space-y-3">
                 {[
-                  'Strong password requirements',
-                  'Multi-factor authentication (MFA)',
-                  'Session timeout controls',
-                  'Activity logs and audit trails',
-                  'Granular permission controls',
+                  'bcrypt password hashing (never stored in plain text)',
+                  'JWT access tokens with expiration',
+                  'Refresh token rotation',
+                  'Session invalidation on logout',
                   'Secure password reset procedures',
+                  'CORS restrictions on API access',
                 ].map((item, index) => (
                   <li key={index} className="flex items-start space-x-2">
                     <CheckCircle2 className="text-electric-500 flex-shrink-0 mt-0.5" size={20} />
@@ -299,15 +322,15 @@ const SecurityPage = () => {
         <Container>
           <Card className="bg-gradient-to-br from-electric-500 to-electric-600 p-12 text-white text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              Have security questions?
+              Found a security issue?
             </h2>
             <p className="text-xl text-electric-100 mb-8 max-w-2xl mx-auto">
-              We're happy to answer any questions about our security practices and compliance.
+              If you discover a vulnerability, please disclose it responsibly. Email us and we'll respond promptly.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="/contact">
+              <a href="mailto:contact@jobrythm.com">
                 <Button size="lg" variant="secondary">
-                  Contact security team
+                  contact@jobrythm.com
                 </Button>
               </a>
               <a href={signupUrl}>
@@ -315,7 +338,7 @@ const SecurityPage = () => {
                   size="lg"
                   className="bg-navy-900 text-electric-600 hover:bg-gray-100"
                 >
-                  Start secure trial
+                  Start free trial
                 </Button>
               </a>
             </div>

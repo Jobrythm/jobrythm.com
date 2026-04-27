@@ -9,105 +9,113 @@ const TermsPage = () => {
     },
     {
       title: '2. Description of Service',
-      content: 'Jobrythm provides a cloud-based software platform for trades businesses to create quotes, track job costs, generate invoices, and manage client relationships. We reserve the right to modify, suspend, or discontinue any aspect of the service at any time.',
+      content: 'Jobrythm is a cloud-based software platform for trades businesses to create quotes, track job costs, generate invoices, and manage client relationships. Jobrythm is developed and operated by Artistech Endeavors (beta.artistechendeavors.com), an independent software company based in McMinnville, Oregon. We reserve the right to modify, suspend, or discontinue any aspect of the service at any time.',
     },
     {
-      title: '3. Account Registration',
+      title: '3. Open Source',
+      content: 'The source code for Jobrythm is publicly available on GitHub (github.com/Jobrythm). You are welcome to inspect, fork, and contribute to the codebase under the terms of the applicable open source license. Using the hosted service (app.jobrythm.aricummings.com) is subject to these Terms regardless of whether you have reviewed the source code.',
+    },
+    {
+      title: '4. Account Registration',
       content: 'To use our services, you must register for an account and provide accurate, current, and complete information. You are responsible for maintaining the confidentiality of your account credentials and for all activities that occur under your account. You must notify us immediately of any unauthorized use of your account.',
     },
     {
-      title: '4. Subscription and Payment',
+      title: '5. Free Trial',
+      content: 'New users may access a free trial of Jobrythm without providing payment information. The trial allows you to evaluate the service before subscribing. We reserve the right to modify or discontinue the free trial at any time.',
+    },
+    {
+      title: '6. Subscription and Payment',
       subsections: [
         {
           subtitle: 'Fees',
-          text: 'Access to certain features of our service requires payment of subscription fees. All fees are non-refundable except as expressly stated in these terms.',
+          text: 'Access to the full feature set of Jobrythm requires payment of a subscription fee. Subscription fees are listed on our Pricing page.',
         },
         {
           subtitle: 'Billing',
           text: 'Subscription fees are billed in advance on a monthly or annual basis, depending on your selected plan. You authorize us to charge your payment method for all fees.',
         },
         {
-          subtitle: 'Price changes',
-          text: 'We reserve the right to change our subscription fees at any time. We will provide at least 30 days\' notice of any fee increase.',
+          subtitle: 'No Refunds',
+          text: 'All subscription payments are final and non-refundable. We do not issue refunds or credits for any partial subscription periods, unused features, or cancelled accounts. If you cancel, your access continues until the end of your current billing period.',
         },
         {
-          subtitle: 'Free trial',
-          text: 'We may offer a free trial period for new users. At the end of the trial, you will be automatically charged unless you cancel before the trial ends.',
+          subtitle: 'Price changes',
+          text: 'We reserve the right to change our subscription fees at any time. We will provide at least 30 days\' notice of any fee increase via the email address on your account.',
         },
       ],
     },
     {
-      title: '5. Acceptable Use',
-      content: 'You agree not to: (a) use the service for any illegal purpose; (b) transmit any viruses, malware, or harmful code; (c) attempt to gain unauthorized access to our systems; (d) interfere with or disrupt the service; (e) use the service to spam or harass others; (f) violate any applicable laws or regulations; or (g) reverse engineer, decompile, or disassemble any aspect of the service.',
+      title: '7. Acceptable Use',
+      content: 'You agree not to: (a) use the service for any illegal purpose; (b) transmit any viruses, malware, or harmful code; (c) attempt to gain unauthorized access to our systems; (d) interfere with or disrupt the service; (e) use the service to spam or harass others; (f) violate any applicable laws or regulations.',
     },
     {
-      title: '6. Your Data',
+      title: '8. Your Data',
       subsections: [
         {
           subtitle: 'Ownership',
-          text: 'You retain all ownership rights to the data you input into our platform. We do not claim any ownership over your business data.',
+          text: 'You retain all ownership rights to the data you input into the platform. We do not claim any ownership over your business data.',
         },
         {
           subtitle: 'License',
           text: 'By using our service, you grant us a limited license to use, store, and process your data solely for the purpose of providing the service to you.',
         },
         {
-          subtitle: 'Backup and recovery',
+          subtitle: 'Backup',
           text: 'While we perform regular backups, you are responsible for maintaining your own backups of your data.',
         },
         {
-          subtitle: 'Data deletion',
+          subtitle: 'Deletion',
           text: 'If you close your account, we will delete your data within 90 days, except where we are required to retain it for legal compliance.',
         },
       ],
     },
     {
-      title: '7. Intellectual Property',
-      content: 'The service and its original content, features, and functionality are owned by Jobrythm and are protected by international copyright, trademark, patent, trade secret, and other intellectual property laws. You may not copy, modify, distribute, sell, or lease any part of our services without our express written permission.',
+      title: '9. Documentation',
+      content: 'Jobrythm provides documentation to help you get the most out of the platform. There is no formal training program. Support is provided through documentation and via email at contact@jobrythm.com.',
     },
     {
-      title: '8. Confidentiality',
+      title: '10. Intellectual Property',
+      content: 'The Jobrythm name, logo, and any proprietary features not covered by the open source license are owned by Artistech Endeavors. The underlying source code is available under its respective open source license. You may not use the Jobrythm name or logo without prior written permission.',
+    },
+    {
+      title: '11. Confidentiality',
       content: 'We will maintain the confidentiality of your business data and will not disclose it to third parties except as described in our Privacy Policy or as required by law.',
     },
     {
-      title: '9. Service Availability',
-      content: 'We strive to provide 99.9% uptime but do not guarantee that the service will be uninterrupted or error-free. We will not be liable for any service interruptions, including those caused by system maintenance, updates, or factors beyond our control.',
+      title: '12. Service Availability',
+      content: 'We strive to maintain high availability but do not guarantee that the service will be uninterrupted or error-free. We will not be liable for any service interruptions caused by system maintenance, updates, or factors beyond our control.',
     },
     {
-      title: '10. Termination',
-      content: 'You may cancel your subscription at any time from your account settings. We may terminate or suspend your account immediately, without prior notice, if you breach these terms. Upon termination, your right to use the service will immediately cease.',
+      title: '13. Termination',
+      content: 'You may cancel your subscription at any time from your account settings. We may terminate or suspend your account immediately, without prior notice, if you breach these terms. Upon termination, your right to use the service will immediately cease. No refunds will be issued for the remaining subscription period.',
     },
     {
-      title: '11. Disclaimers',
+      title: '14. Disclaimers',
       content: 'THE SERVICE IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED. WE DISCLAIM ALL WARRANTIES, INCLUDING BUT NOT LIMITED TO MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT. WE DO NOT WARRANT THAT THE SERVICE WILL BE UNINTERRUPTED, SECURE, OR ERROR-FREE.',
     },
     {
-      title: '12. Limitation of Liability',
-      content: 'TO THE MAXIMUM EXTENT PERMITTED BY LAW, JOBRYTHM SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING LOST PROFITS, LOST DATA, OR BUSINESS INTERRUPTION, ARISING OUT OF YOUR USE OF THE SERVICE. OUR TOTAL LIABILITY SHALL NOT EXCEED THE AMOUNT YOU PAID US IN THE 12 MONTHS PRECEDING THE CLAIM.',
+      title: '15. Limitation of Liability',
+      content: 'TO THE MAXIMUM EXTENT PERMITTED BY LAW, ARTISTECH ENDEAVORS AND ITS DEVELOPER SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING LOST PROFITS, LOST DATA, OR BUSINESS INTERRUPTION, ARISING OUT OF YOUR USE OF THE SERVICE. OUR TOTAL LIABILITY SHALL NOT EXCEED THE AMOUNT YOU PAID US IN THE 12 MONTHS PRECEDING THE CLAIM.',
     },
     {
-      title: '13. Indemnification',
-      content: 'You agree to indemnify and hold harmless Jobrythm and its officers, directors, employees, and agents from any claims, damages, losses, liabilities, and expenses arising out of your use of the service, your violation of these terms, or your violation of any rights of another.',
+      title: '16. Indemnification',
+      content: 'You agree to indemnify and hold harmless Artistech Endeavors and its developer from any claims, damages, losses, liabilities, and expenses arising out of your use of the service, your violation of these terms, or your violation of any rights of another.',
     },
     {
-      title: '14. Governing Law',
-      content: 'These terms shall be governed by and construed in accordance with the laws of the State of California, without regard to its conflict of law provisions. You agree to submit to the exclusive jurisdiction of the courts located in San Francisco, California.',
+      title: '17. Governing Law',
+      content: 'These terms shall be governed by and construed in accordance with the laws of the State of Oregon, without regard to its conflict of law provisions. You agree to submit to the exclusive jurisdiction of the courts located in Yamhill County, Oregon.',
     },
     {
-      title: '15. Dispute Resolution',
-      content: 'Any disputes arising out of or relating to these terms or the service shall be resolved through binding arbitration in accordance with the rules of the American Arbitration Association, except that either party may seek injunctive relief in court.',
+      title: '18. Changes to Terms',
+      content: 'We reserve the right to modify these terms at any time. We will provide notice of material changes by posting the updated terms on this page and updating the "Last updated" date. Your continued use of the service after changes become effective constitutes your acceptance of the new terms.',
     },
     {
-      title: '16. Changes to Terms',
-      content: 'We reserve the right to modify these terms at any time. We will provide notice of material changes by posting the new terms on our website and updating the "Last updated" date. Your continued use of the service after changes become effective constitutes your acceptance of the new terms.',
+      title: '19. Entire Agreement',
+      content: 'These terms constitute the entire agreement between you and Artistech Endeavors regarding the use of the service and supersede all prior agreements and understandings.',
     },
     {
-      title: '17. Entire Agreement',
-      content: 'These terms constitute the entire agreement between you and Jobrythm regarding the use of the service and supersede all prior agreements and understandings.',
-    },
-    {
-      title: '18. Contact',
-      content: 'If you have any questions about these Terms of Service, please contact us at hello@jobrythm.aricummings.com.',
+      title: '20. Contact',
+      content: 'If you have any questions about these Terms of Service, please contact us at contact@jobrythm.com.',
     },
   ];
 
@@ -142,7 +150,7 @@ const TermsPage = () => {
           >
             <div className="mb-12 p-6 bg-navy-800 rounded-2xl">
               <p className="text-gray-300 mb-0">
-                Welcome to Jobrythm. These Terms of Service ("Terms") govern your use of our platform and services. By using Jobrythm, you agree to these terms. Please read them carefully.
+                Welcome to Jobrythm. These Terms of Service ("Terms") govern your use of our platform and services. Jobrythm is developed and operated by Artistech Endeavors, based in McMinnville, Oregon. By using Jobrythm, you agree to these terms. Please read them carefully.
               </p>
             </div>
 
@@ -166,14 +174,14 @@ const TermsPage = () => {
               </div>
             ))}
 
-            <div className="mt-12 p-6 bg-electric-50 rounded-2xl border border-electric-200">
-              <p className="text-gray-300 mb-4">
-                <strong>Questions about these terms?</strong>
+            <div className="mt-12 p-6 bg-navy-800 rounded-2xl border border-navy-700">
+              <p className="text-white font-semibold mb-4">
+                Questions about these terms?
               </p>
               <p className="text-gray-300 mb-0">
                 If you have any questions about these Terms of Service, please contact us at{' '}
-                <a href="mailto:hello@jobrythm.aricummings.com" className="text-electric-600 hover:text-electric-700 font-medium">
-                  hello@jobrythm.aricummings.com
+                <a href="mailto:contact@jobrythm.com" className="text-electric-400 hover:text-electric-300 font-medium">
+                  contact@jobrythm.com
                 </a>
               </p>
             </div>

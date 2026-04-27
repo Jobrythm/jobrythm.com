@@ -85,7 +85,7 @@ const PrivacyPage = () => {
         },
         {
           subtitle: 'Deletion',
-          text: 'You may request deletion of your account and personal information by contacting us at hello@jobrythm.aricummings.com.',
+          text: 'You may request deletion of your account and personal information by contacting us at contact@jobrythm.com.',
         },
         {
           subtitle: 'Opt-out',
@@ -134,7 +134,7 @@ const PrivacyPage = () => {
       content: [
         {
           subtitle: null,
-          text: 'If you have any questions about this privacy policy or our practices, please contact us at hello@jobrythm.aricummings.com.',
+          text: 'If you have any questions about this privacy policy or our practices, please contact us at contact@jobrythm.com. Jobrythm is developed and operated by Artistech Endeavors, McMinnville, Oregon.',
         },
       ],
     },
@@ -171,7 +171,7 @@ const PrivacyPage = () => {
           >
             <div className="mb-12 p-6 bg-navy-800 rounded-2xl">
               <p className="text-gray-300 mb-0">
-                At Jobrythm, we take your privacy seriously. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our platform. Please read this policy carefully. If you do not agree with the terms of this privacy policy, please do not access our services.
+                At Jobrythm (developed by Artistech Endeavors, McMinnville, Oregon), we take your privacy seriously. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our platform. Jobrythm is open source — you can review the code at github.com/Jobrythm. Please read this policy carefully. If you do not agree with the terms of this privacy policy, please do not access our services.
               </p>
             </div>
 
@@ -189,14 +189,14 @@ const PrivacyPage = () => {
               </div>
             ))}
 
-            <div className="mt-12 p-6 bg-electric-50 rounded-2xl border border-electric-200">
-              <p className="text-gray-300 mb-4">
-                <strong>Questions or concerns?</strong>
+            <div className="mt-12 p-6 bg-navy-800 rounded-2xl border border-navy-700">
+              <p className="text-white font-semibold mb-4">
+                Questions or concerns?
               </p>
               <p className="text-gray-300 mb-0">
                 If you have any questions or concerns about this privacy policy or our data practices, please contact us at{' '}
-                <a href="mailto:hello@jobrythm.aricummings.com" className="text-electric-600 hover:text-electric-700 font-medium">
-                  hello@jobrythm.aricummings.com
+                <a href="mailto:contact@jobrythm.com" className="text-electric-400 hover:text-electric-300 font-medium">
+                  contact@jobrythm.com
                 </a>
               </p>
             </div>

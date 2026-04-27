@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Target, Heart, Zap, Shield } from 'lucide-react';
+import { Target, Heart, Zap, Shield, Code2, ExternalLink } from 'lucide-react';
 import Button from '../components/ui/Button';
 import Card from '../components/ui/Card';
 import Container from '../components/ui/Container';
@@ -11,49 +11,22 @@ const AboutPage = () => {
     {
       icon: Target,
       title: 'Clarity',
-      description: 'We believe every trade business deserves clear insight into their profitability and operations.',
+      description: 'Every trades business deserves clear insight into their profitability and operations.',
     },
     {
       icon: Heart,
       title: 'Craftsmanship',
-      description: 'We build software with the same care and attention to detail that our customers bring to their work.',
+      description: 'Software built with the same care and attention to detail that our users bring to their work.',
     },
     {
       icon: Shield,
       title: 'Reliability',
-      description: 'Trades teams depend on us daily. We take that trust seriously and deliver rock-solid software.',
+      description: 'Trades teams depend on this daily. That trust is taken seriously and reflected in rock-solid software.',
     },
     {
       icon: Zap,
       title: 'Momentum',
-      description: 'Speed matters in trades. We help you move faster without sacrificing quality or accuracy.',
-    },
-  ];
-
-  const team = [
-    {
-      name: 'Alex Richardson',
-      role: 'Founder & CEO',
-      bio: 'Former contractor with 15+ years in the trades. Built Jobrythm to solve the problems he faced daily.',
-      placeholder: true,
-    },
-    {
-      name: 'Sarah Martinez',
-      role: 'Head of Product',
-      bio: 'Ex-construction software expert passionate about building tools that trades teams actually love to use.',
-      placeholder: true,
-    },
-    {
-      name: 'James Chen',
-      role: 'Lead Engineer',
-      bio: 'Full-stack developer focused on creating fast, reliable software for mission-critical business operations.',
-      placeholder: true,
-    },
-    {
-      name: 'Emma Thompson',
-      role: 'Customer Success',
-      bio: 'Dedicated to ensuring every customer gets maximum value from Jobrythm and loves using it daily.',
-      placeholder: true,
+      description: 'Speed matters in trades. Jobrythm helps you move faster without sacrificing quality or accuracy.',
     },
   ];
 
@@ -68,10 +41,10 @@ const AboutPage = () => {
             className="text-center max-w-4xl mx-auto"
           >
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-              Built by trades people, for trades people
+              Built for trades. By a developer who gives a damn.
             </h1>
             <p className="text-xl text-gray-300">
-              We're on a mission to help trades businesses win more work, protect their margins, and grow profitably.
+              Jobrythm is an open source project built to help trades businesses win more work, protect their margins, and grow profitably.
             </p>
           </motion.div>
         </Container>
@@ -87,48 +60,82 @@ const AboutPage = () => {
             className="text-center"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-              Our mission
+              The mission
             </h2>
             <p className="text-xl text-gray-300 leading-relaxed mb-8">
-              Every day, skilled trades people pour their expertise into their work. But too often, poor tools and messy workflows eat away at their time and profits. We believe trades businesses deserve software that's as reliable and well-crafted as the work they deliver.
+              Every day, skilled trades people pour their expertise into their work. But too often, poor tools and messy workflows eat away at their time and profits. Trades businesses deserve software that's as reliable and well-crafted as the work they deliver.
             </p>
             <p className="text-xl text-gray-300 leading-relaxed">
-              Jobrythm exists to give trades teams clarity and control over their business operations—from the first quote to the final payment. We're here to help you focus on what you do best while we handle the rest.
+              Jobrythm exists to give trades teams clarity and control over their business — from the first quote to the final payment.
             </p>
           </motion.div>
         </Container>
       </section>
 
-      {/* Why We Built This */}
+      {/* Open Source */}
       <section className="py-20 lg:py-32 bg-navy-800">
         <Container>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-              Why we built Jobrythm
-            </h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Born from real frustrations and built with deep trades industry knowledge
-            </p>
-          </motion.div>
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+            >
+              <div className="w-14 h-14 bg-electric-100 rounded-2xl flex items-center justify-center mb-6">
+                <Code2 className="text-electric-600" size={28} />
+              </div>
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+                Fully open source
+              </h2>
+              <p className="text-xl text-gray-300 leading-relaxed mb-6">
+                Jobrythm is open source. Both the marketing site and the application backend are publicly available on GitHub. You can inspect the code, report issues, or contribute.
+              </p>
+              <p className="text-gray-300 leading-relaxed mb-8">
+                Transparency isn't just a feature — it's a foundation. You should know exactly what software you're trusting with your business data.
+              </p>
+              <a
+                href="https://github.com/Jobrythm"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-electric-400 hover:text-electric-300 transition-colors font-semibold"
+              >
+                <Code2 size={18} />
+                View on GitHub
+                <ExternalLink size={14} />
+              </a>
+            </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            <Card className="p-8">
-              <h3 className="text-2xl font-bold text-white mb-4">The problem</h3>
-              <p className="text-gray-300 leading-relaxed">
-                Our founder spent years running an electrical contracting business, fighting with spreadsheets, losing track of costs, and wondering if jobs were actually profitable. The tools available were either too complex, too expensive, or built for industries that didn't understand the unique challenges of trades work.
-              </p>
-            </Card>
-            <Card className="p-8">
-              <h3 className="text-2xl font-bold text-white mb-4">The solution</h3>
-              <p className="text-gray-300 leading-relaxed">
-                We built Jobrythm to be the tool we wished we'd had—simple enough to use daily, powerful enough to run a growing business, and affordable for teams of all sizes. It's designed specifically for how trades businesses actually work, not how software companies think they should work.
-              </p>
-            </Card>
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="space-y-4"
+            >
+              <Card className="p-6">
+                <h3 className="font-bold text-white mb-2">jobrythm-fullstack</h3>
+                <p className="text-gray-300 text-sm mb-3">The application backend — TypeScript, Express, PostgreSQL, JWT auth, Stripe payments, PDF generation.</p>
+                <a
+                  href="https://github.com/Jobrythm/jobrythm-fullstack"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 text-electric-400 hover:text-electric-300 transition-colors text-sm"
+                >
+                  github.com/Jobrythm/jobrythm-fullstack <ExternalLink size={12} />
+                </a>
+              </Card>
+              <Card className="p-6">
+                <h3 className="font-bold text-white mb-2">jobrythm.com</h3>
+                <p className="text-gray-300 text-sm mb-3">This marketing site — React, TypeScript, Vite, Tailwind, Strapi CMS, Docker.</p>
+                <a
+                  href="https://github.com/Jobrythm/jobrythm.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 text-electric-400 hover:text-electric-300 transition-colors text-sm"
+                >
+                  github.com/Jobrythm/jobrythm.com <ExternalLink size={12} />
+                </a>
+              </Card>
+            </motion.div>
           </div>
         </Container>
       </section>
@@ -143,10 +150,10 @@ const AboutPage = () => {
             className="text-center mb-16"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-              Our values
+              Core values
             </h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              The principles that guide everything we build
+              The principles behind every design and engineering decision
             </p>
           </motion.div>
 
@@ -167,7 +174,7 @@ const AboutPage = () => {
         </Container>
       </section>
 
-      {/* Team Section */}
+      {/* Developer Section */}
       <section className="py-20 lg:py-32 bg-navy-800">
         <Container>
           <motion.div
@@ -177,24 +184,39 @@ const AboutPage = () => {
             className="text-center mb-16"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-              Meet the team
+              The team
             </h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Placeholder profiles for illustrative purposes
-            </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {team.map((member, index) => (
-              <Card key={index} className="p-6 text-center">
-                <div className="w-32 h-32 bg-navy-100 rounded-full mx-auto mb-4 flex items-center justify-center">
-                  <span className="text-4xl text-gray-400">👤</span>
-                </div>
-                <h3 className="text-lg font-bold text-white mb-1">{member.name}</h3>
-                <p className="text-sm text-electric-600 font-medium mb-3">{member.role}</p>
-                <p className="text-sm text-gray-300">{member.bio}</p>
-              </Card>
-            ))}
+          <div className="max-w-2xl mx-auto">
+            <Card className="p-8 text-center">
+              <div className="w-24 h-24 bg-electric-100 rounded-full mx-auto mb-6 flex items-center justify-center">
+                <Code2 className="text-electric-600" size={40} />
+              </div>
+              <h3 className="text-2xl font-bold text-white mb-1">Ari Cummings</h3>
+              <p className="text-electric-400 font-medium mb-4">Sole Developer — McMinnville, Oregon</p>
+              <p className="text-gray-300 leading-relaxed mb-6">
+                Software developer based in McMinnville, Oregon. Built Jobrythm from scratch under the Artistech Endeavors banner. Not a contractor — just a developer who saw a real problem in the trades industry and built a real solution for it.
+              </p>
+              <div className="flex justify-center gap-6">
+                <a
+                  href="https://aricummings.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 text-electric-400 hover:text-electric-300 transition-colors font-medium"
+                >
+                  aricummings.com <ExternalLink size={14} />
+                </a>
+                <a
+                  href="https://beta.artistechendeavors.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 text-electric-400 hover:text-electric-300 transition-colors font-medium"
+                >
+                  Artistech Endeavors <ExternalLink size={14} />
+                </a>
+              </div>
+            </Card>
           </div>
         </Container>
       </section>
@@ -204,15 +226,15 @@ const AboutPage = () => {
         <Container>
           <Card className="bg-gradient-to-br from-electric-500 to-electric-600 p-12 text-white text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              Join us in building the future of trades business software
+              Ready to give it a try?
             </h2>
             <p className="text-xl text-electric-100 mb-8 max-w-2xl mx-auto">
-              We're always looking for feedback from trades professionals. Let's build something great together.
+              Free trial available. No demo needed — just sign up and start.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a href={signupUrl}>
                 <Button size="lg" variant="secondary">
-                  Try Jobrythm free
+                  Start free trial
                 </Button>
               </a>
               <a href="/contact">
