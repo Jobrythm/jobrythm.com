@@ -12,6 +12,11 @@ RUN npm ci
 # Copy source files
 COPY . .
 
+# Accept VITE_API_URL as a build-time arg so the compiled JS uses the right base.
+# Leave empty (default) to use relative URLs, which nginx proxies to the backend.
+ARG VITE_API_URL=""
+ENV VITE_API_URL=$VITE_API_URL
+
 # Build the application
 RUN npm run build
 
