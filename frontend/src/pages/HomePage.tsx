@@ -101,25 +101,25 @@ const HomePage = () => {
   const pricingPlans = [
     {
       name: 'Starter',
-      price: '$29',
+      price: '$14',
       period: '/month',
-      description: 'Perfect for solo contractors',
-      features: ['Unlimited quotes', 'Basic job costing', 'Invoice generation', 'Client management'],
+      description: 'Solo traders & freelancers',
+      features: ['Up to 15 jobs', 'Quotes & invoices', '1 user', 'Basic job costing', 'Client management', 'Mobile app access'],
     },
     {
-      name: 'Pro',
-      price: '$79',
+      name: 'Professional',
+      price: '$29',
       period: '/month',
-      description: 'For growing trades businesses',
-      features: ['Everything in Starter', 'Advanced margin insights', 'Team collaboration', 'Custom branding', 'Priority support'],
+      description: 'Small teams',
+      features: ['Unlimited jobs', 'Quotes & invoices', 'Up to 3 users', 'Client portal', 'Advanced margin insights', 'Priority support'],
       featured: true,
     },
     {
-      name: 'Team',
-      price: '$149',
+      name: 'Business',
+      price: '$59',
       period: '/month',
-      description: 'For larger teams',
-      features: ['Everything in Pro', 'Unlimited team members', 'API access', 'Advanced reporting', 'Dedicated support'],
+      description: 'Growing businesses',
+      features: ['Everything in Professional', 'Team collaboration', 'API access', 'Up to 10 users', 'Dedicated support'],
     },
   ];
 
