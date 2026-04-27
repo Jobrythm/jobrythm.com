@@ -21,7 +21,11 @@ function AnalyticsTracker() {
 
 function BookDemoRedirect() {
   const { demoUrl } = useDomain();
-  window.location.replace(demoUrl);
+  // Guard against non-http(s) protocols even though DomainContext sanitizes demoUrl.
+  const safe = /^https?:\/\//i.test(demoUrl) || demoUrl.startsWith('/');
+  if (safe) {
+    window.location.replace(demoUrl);
+  }
   return null;
 }
 

@@ -330,7 +330,9 @@ const HomePage = () => {
               </div>
             ))}
           </div>
-          <p className="text-center text-xs text-gray-600 mt-4">Placeholder logos — replace with real customers</p>
+          {import.meta.env.DEV && (
+            <p className="text-center text-xs text-gray-600 mt-4">Placeholder logos — replace with real customers</p>
+          )}
         </Container>
       </section>
 
@@ -459,9 +461,9 @@ const HomePage = () => {
       </section>
 
       {/* Screenshots Section */}
-      {/* TODO: Add real screenshots to /public/screenshots/ and replace the placeholder cards below.
+      {/* TODO: Add real screenshots to /public/screenshots/
           Files expected: screenshot-jobs.png, screenshot-quote.png, screenshot-invoice.png
-          Suggested dimensions: 1280×800px (16:10 ratio works well at this card size). */}
+          Suggested dimensions: 1280x800px. Swap placeholder divs below for <img> tags. */}
       <section className="py-20 lg:py-32 bg-navy-800">
         <Container>
           <motion.div
@@ -564,7 +566,9 @@ const HomePage = () => {
               What contractors say
             </h2>
             {/* TODO: Replace with real customer testimonials */}
-            <p className="text-sm text-gray-500 italic">Illustrative testimonials — replace with real customer quotes</p>
+            {import.meta.env.DEV && (
+              <p className="text-sm text-gray-500 italic">Illustrative testimonials — replace with real customer quotes</p>
+            )}
           </motion.div>
 
           <div className="grid md:grid-cols-3 gap-8">

@@ -3,8 +3,24 @@ import { createContext, useContext, useState, type ReactNode } from 'react';
 const STORAGE_KEY = 'jobrythm_root_domain';
 const DEMO_URL_KEY = 'jobrythm_demo_url';
 const DEFAULT_DOMAIN = 'jobrythm.app';
+// Set VITE_DEMO_URL in your .env file (e.g. a Calendly link). Falls back to the contact page.
 const DEFAULT_DEMO_URL =
-  (import.meta.env.VITE_DEMO_URL as string | undefined) || 'https://calendly.com/jobrythm/demo';
+  (import.meta.env.VITE_DEMO_URL as string | undefined) || '/contact';
+
+/** Allow only http/https URLs to prevent javascript: injection. */
+function sanitizeUrl(url: string, fallback: string): string {
+  if (!url) return fallback;
+  try {
+    const parsed = new URL(url, window.location.origin);
+    if (parsed.protocol === 'https:' || parsed.protocol === 'http:') {
+      return url;
+    }
+  } catch {
+    // relative URL — allow as-is (e.g. "/contact")
+    if (url.startsWith('/')) return url;
+  }
+  return fallback;
+}
 
 interface DomainContextValue {
   rootDomain: string;
@@ -34,7 +50,8 @@ export const DomainProvider = ({ children }: { children: ReactNode }) => {
   });
 
   const [demoUrl, setDemoUrlState] = useState<string>(() => {
-    return localStorage.getItem(DEMO_URL_KEY) || DEFAULT_DEMO_URL;
+    const stored = localStorage.getItem(DEMO_URL_KEY) || DEFAULT_DEMO_URL;
+    return sanitizeUrl(stored, DEFAULT_DEMO_URL);
   });
 
   const setRootDomain = (domain: string) => {
@@ -43,8 +60,9 @@ export const DomainProvider = ({ children }: { children: ReactNode }) => {
   };
 
   const setDemoUrl = (url: string) => {
-    localStorage.setItem(DEMO_URL_KEY, url);
-    setDemoUrlState(url);
+    const safe = sanitizeUrl(url, DEFAULT_DEMO_URL);
+    localStorage.setItem(DEMO_URL_KEY, safe);
+    setDemoUrlState(safe);
   };
 
   const appBaseUrl = `https://${rootDomain}`;
