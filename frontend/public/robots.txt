@@ -1,8 +1,8 @@
-# https://jobrythm.com/robots.txt
+# https://jobrythm.io/robots.txt
 User-agent: *
 Allow: /
 Disallow: /admin-page
 Disallow: /admin-page/
 Disallow: /api/
 
-Sitemap: https://jobrythm.com/sitemap.xml
+Sitemap: https://jobrythm.io/sitemap.xml
