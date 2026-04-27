@@ -328,9 +328,9 @@ const SecurityPage = () => {
               If you discover a vulnerability, please disclose it responsibly. Email us and we'll respond promptly.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="mailto:contact@jobrythm.com">
+              <a href="mailto:contact@jobrythm.io">
                 <Button size="lg" variant="secondary">
-                  contact@jobrythm.com
+                  contact@jobrythm.io
                 </Button>
               </a>
               <a href={signupUrl}>

@@ -85,7 +85,7 @@ const PrivacyPage = () => {
         },
         {
           subtitle: 'Deletion',
-          text: 'You may request deletion of your account and personal information by contacting us at contact@jobrythm.com.',
+          text: 'You may request deletion of your account and personal information by contacting us at contact@jobrythm.io.',
         },
         {
           subtitle: 'Opt-out',
@@ -134,7 +134,7 @@ const PrivacyPage = () => {
       content: [
         {
           subtitle: null,
-          text: 'If you have any questions about this privacy policy or our practices, please contact us at contact@jobrythm.com. Jobrythm is developed and operated by Artistech Endeavors, McMinnville, Oregon.',
+          text: 'If you have any questions about this privacy policy or our practices, please contact us at contact@jobrythm.io. Jobrythm is developed and operated by Artistech Endeavors, McMinnville, Oregon.',
         },
       ],
     },
@@ -195,8 +195,8 @@ const PrivacyPage = () => {
               </p>
               <p className="text-gray-300 mb-0">
                 If you have any questions or concerns about this privacy policy or our data practices, please contact us at{' '}
-                <a href="mailto:contact@jobrythm.com" className="text-electric-400 hover:text-electric-300 font-medium">
-                  contact@jobrythm.com
+                <a href="mailto:contact@jobrythm.io" className="text-electric-400 hover:text-electric-300 font-medium">
+                  contact@jobrythm.io
                 </a>
               </p>
             </div>

@@ -16,14 +16,14 @@ const AdminSettings = () => {
   };
 
   const handleReset = () => {
-    setInputDomain('jobrythm.com');
-    setRootDomain('jobrythm.com');
+    setInputDomain('jobrythm.app');
+    setRootDomain('jobrythm.app');
     setSaved(true);
     setTimeout(() => setSaved(false), 3000);
   };
 
   const presets = [
-    { label: 'Production', value: 'jobrythm.com' },
+    { label: 'Production', value: 'jobrythm.app' },
     { label: 'Testing', value: 'jobrythm.aricummings.com' },
     { label: 'Local', value: 'localhost' },
   ];
@@ -39,13 +39,11 @@ const AdminSettings = () => {
       <div className="bg-navy-800 border border-navy-700 rounded-xl">
         <div className="px-6 py-4 border-b border-navy-700 flex items-center space-x-2">
           <Globe size={18} className="text-electric-400" />
-          <h3 className="text-lg font-semibold text-white">Root Domain</h3>
+          <h3 className="text-lg font-semibold text-white">App Domain</h3>
         </div>
         <div className="p-6 space-y-6">
           <p className="text-sm text-gray-400">
-            Set the root domain for this deployment. The app will be served at{' '}
-            <span className="text-electric-400 font-mono">app.{'{root domain}'}</span>.
-            This affects all "Log in" and "Start free" links throughout the site.
+            Set the app domain for this deployment. This affects all "Log in" and "Start free" links throughout the site.
           </p>
 
           {/* Preset buttons */}
@@ -72,21 +70,16 @@ const AdminSettings = () => {
 
           <form onSubmit={handleSave} className="space-y-4">
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-1.5">Root domain</label>
-              <div className="flex items-stretch">
-                <span className="flex items-center px-3 bg-navy-700 border border-r-0 border-navy-600 rounded-l-lg text-gray-400 text-sm font-mono">
-                  app.
-                </span>
-                <input
-                  type="text"
-                  value={inputDomain}
-                  onChange={e => setInputDomain(e.target.value)}
-                  className="flex-1 bg-navy-900 border border-navy-600 text-white rounded-r-lg px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-electric-500 focus:border-transparent font-mono text-sm"
-                  placeholder="jobrythm.com"
-                />
-              </div>
+              <label className="block text-sm font-medium text-gray-300 mb-1.5">App domain</label>
+              <input
+                type="text"
+                value={inputDomain}
+                onChange={e => setInputDomain(e.target.value)}
+                className="w-full bg-navy-900 border border-navy-600 text-white rounded-lg px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-electric-500 focus:border-transparent font-mono text-sm"
+                placeholder="jobrythm.app"
+              />
               <p className="mt-2 text-xs text-gray-500">
-                App URL: <span className="text-electric-400 font-mono">https://app.{inputDomain || 'jobrythm.com'}</span>
+                App URL: <span className="text-electric-400 font-mono">https://{inputDomain || 'jobrythm.app'}</span>
               </p>
             </div>
 

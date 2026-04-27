@@ -4,15 +4,15 @@
 
 This is the **marketing website** for Jobrythm, a SaaS platform for trades businesses. This is NOT the web app itself - it's the public-facing marketing site.
 
-- **Marketing site URL**: https://jobrythm.aricummings.com
-- **Product app URL**: https://app.jobrythm.com
+- **Marketing site URL**: https://jobrythm.io
+- **Product app URL**: https://jobrythm.app
 - **Target audience**: Small trade businesses and solo contractors (electricians, plumbers, builders, renovators, etc.)
 
 ## Important Context
 
 ### External Links
-- **All signup CTAs** must link to: `https://app.jobrythm.com/signup`
-- **All login CTAs** must link to: `https://app.jobrythm.com/login`
+- **All signup CTAs** must link to: `https://jobrythm.app/signup`
+- **All login CTAs** must link to: `https://jobrythm.app/login`
 - **Never link to local /signup or /login routes** - they don't exist in this marketing site
 
 ### Brand Identity
@@ -319,7 +319,7 @@ All meta tags are defined in `index.html`:
 
 When making changes, verify:
 - [ ] Mobile responsiveness (320px to 1920px)
-- [ ] All CTAs link to correct URLs (app.jobrythm.com)
+- [ ] All CTAs link to correct URLs (jobrythm.app)
 - [ ] Forms validate properly
 - [ ] Animations work smoothly
 - [ ] Navigation works on all pages
