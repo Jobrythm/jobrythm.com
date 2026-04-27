@@ -3,6 +3,7 @@ import { Shield, Lock, Server, Eye, CheckCircle2, Code2 } from 'lucide-react';
 import Button from '../components/ui/Button';
 import Card from '../components/ui/Card';
 import Container from '../components/ui/Container';
+import Seo from '../components/Seo';
 import { useDomain } from '../contexts/DomainContext';
 
 const SecurityPage = () => {
@@ -83,6 +84,11 @@ const SecurityPage = () => {
 
   return (
     <div className="bg-navy-900">
+      <Seo
+        title="Security"
+        description="How Jobrythm protects your data: encryption in transit and at rest, hardened infrastructure, regular backups, and a security-first engineering culture."
+        path="/security"
+      />
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-navy-800 to-navy-900 py-20 lg:py-32">
         <Container>

@@ -17,6 +17,7 @@ import {
 import Button from '../components/ui/Button';
 import Card from '../components/ui/Card';
 import Container from '../components/ui/Container';
+import Seo from '../components/Seo';
 
 const FeaturesPage = () => {
   const { signupUrl } = useDomain();
@@ -208,6 +209,11 @@ const FeaturesPage = () => {
 
   return (
     <div className="bg-navy-900">
+      <Seo
+        title="Features"
+        description="Everything you need to manage a trades business: smart quotes, real-time job costing, line-item tracking, professional invoices, margin insights, and team collaboration."
+        path="/features"
+      />
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-navy-800 to-navy-900 py-20 lg:py-32">
         <Container>

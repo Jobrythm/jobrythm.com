@@ -4,6 +4,7 @@ import { Check, HelpCircle, X } from 'lucide-react';
 import Button from '../components/ui/Button';
 import Card from '../components/ui/Card';
 import Container from '../components/ui/Container';
+import Seo from '../components/Seo';
 import { useDomain } from '../contexts/DomainContext';
 
 const PricingPage = () => {
@@ -145,6 +146,11 @@ const PricingPage = () => {
 
   return (
     <div className="bg-navy-900">
+      <Seo
+        title="Pricing"
+        description="Simple, transparent pricing for trades businesses of every size. No hidden fees — pay for the seats and features you actually use."
+        path="/pricing"
+      />
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-navy-800 to-navy-900 py-20 lg:py-32">
         <Container>

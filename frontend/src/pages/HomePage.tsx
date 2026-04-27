@@ -17,6 +17,7 @@ import {
 import Button from '../components/ui/Button';
 import Card from '../components/ui/Card';
 import Container from '../components/ui/Container';
+import Seo from '../components/Seo';
 
 const HomePage = () => {
   const { signupUrl } = useDomain();
@@ -134,6 +135,12 @@ const HomePage = () => {
 
   return (
     <div className="bg-navy-900">
+      <Seo
+        title="Jobrythm — Win more work. Protect your margins."
+        description="Quoting, job costing, invoicing, and cashflow clarity in one workflow built for trades businesses. Win more work and protect your margins with Jobrythm."
+        path="/"
+        rawTitle
+      />
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-gradient-to-br from-navy-800 to-navy-900 py-20 lg:py-32">
         <Container>
