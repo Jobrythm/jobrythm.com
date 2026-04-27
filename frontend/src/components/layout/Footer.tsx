@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Mail, Briefcase, Share2, Code2 } from 'lucide-react';
+import { Mail, Code2 } from 'lucide-react';
 import logo from '../../assets/Jobrythm.png';
 
 const Footer = () => {
@@ -10,7 +10,6 @@ const Footer = () => {
       { name: 'Features', href: '/features' },
       { name: 'Pricing', href: '/pricing' },
       { name: 'Security', href: '/security' },
-      { name: 'Book Demo', href: '/book-demo' },
     ],
     company: [
       { name: 'About', href: '/about' },
@@ -23,10 +22,8 @@ const Footer = () => {
   };
 
   const socialLinks = [
-    { name: 'Email', icon: Mail, href: 'mailto:hello@jobrythm.aricummings.com' },
-    { name: 'LinkedIn', icon: Briefcase, href: '#' },
-    { name: 'Twitter', icon: Share2, href: '#' },
-    { name: 'GitHub', icon: Code2, href: '#' },
+    { name: 'Email', icon: Mail, href: 'mailto:contact@jobrythm.com' },
+    { name: 'GitHub', icon: Code2, href: 'https://github.com/Jobrythm' },
   ];
 
   return (
@@ -111,8 +108,33 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-navy-800 text-center text-sm text-gray-400">
-          <p>&copy; {currentYear} Jobrythm. All rights reserved.</p>
+        <div className="pt-8 border-t border-navy-800 flex flex-col sm:flex-row items-center justify-between gap-2 text-sm text-gray-400">
+          <p>
+            &copy; {currentYear} Jobrythm by{' '}
+            <a
+              href="https://beta.artistechendeavors.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-electric-400 transition-colors"
+            >
+              Artistech Endeavors
+            </a>
+            {' '}—{' '}
+            <a
+              href="https://github.com/Jobrythm"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-electric-400 transition-colors"
+            >
+              open source
+            </a>
+          </p>
+          <Link
+            to="/admin-page"
+            className="text-gray-600 hover:text-gray-400 transition-colors text-xs"
+          >
+            Admin
+          </Link>
         </div>
       </div>
     </footer>

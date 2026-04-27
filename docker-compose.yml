@@ -1,88 +1,47 @@
 services:
-  # PostgreSQL Database
-  database:
-    image: postgres:15-alpine
-    container_name: jobrythm_database
+  # Analytics API
+  api:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: jobrythm_api
     restart: unless-stopped
-    environment:
-      POSTGRES_DB: ${DATABASE_NAME:-strapi}
-      POSTGRES_USER: ${DATABASE_USERNAME:-strapi}
-      POSTGRES_PASSWORD: ${DATABASE_PASSWORD:-strapi}
-    volumes:
-      - db_data:/var/lib/postgresql/data
-    networks:
-      - jobrythm_network
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U strapi"]
-      interval: 10s
+      test: ["CMD-SHELL", "node -e \"require('http').get('http://localhost:8082/_health',r=>process.exit(r.statusCode===200?0:1)).on('error',()=>process.exit(1))\""]
+      interval: 15s
       timeout: 5s
       retries: 5
-
-  # Strapi CMS
-  strapi:
-    build:
-      context: ./strapi
-      dockerfile: Dockerfile
-    container_name: jobrythm_strapi
-    restart: unless-stopped
-    healthcheck:
-      test: ["CMD", "wget", "--spider", "-q", "http://localhost:8082/_health"]
-      interval: 30s
-      timeout: 10s
-      retries: 10
-      start_period: 120s
+      start_period: 20s
     environment:
-      DATABASE_CLIENT: postgres
-      DATABASE_HOST: database
-      DATABASE_PORT: 5432
-      DATABASE_NAME: ${DATABASE_NAME:-strapi}
-      DATABASE_USERNAME: ${DATABASE_USERNAME:-strapi}
-      DATABASE_PASSWORD: ${DATABASE_PASSWORD:-strapi}
-      DATABASE_SSL: false
-      HOST: 0.0.0.0
       PORT: 8082
-      APP_KEYS: ${APP_KEYS:-key1,key2,key3,key4}
-      API_TOKEN_SALT: ${API_TOKEN_SALT:-tokensalt}
-      ADMIN_JWT_SECRET: ${ADMIN_JWT_SECRET:-adminjwtsecret}
-      TRANSFER_TOKEN_SALT: ${TRANSFER_TOKEN_SALT:-transfersalt}
-      JWT_SECRET: ${JWT_SECRET:-jwtsecret}
-      PUBLIC_URL: ${PUBLIC_URL:-http://localhost:8081}
-      NODE_ENV: production
+      DATA_DIR: /data
     volumes:
-      - strapi_uploads:/app/public/uploads
-      - ./strapi:/app
-      - /app/node_modules
-      - /app/.cache
-      - /app/build
-    depends_on:
-      database:
-        condition: service_healthy
+      - api_data:/data
     networks:
       - jobrythm_network
 
-  # Frontend (React)
+  # Frontend (React + nginx)
   frontend:
     build:
       context: ./frontend
       dockerfile: Dockerfile
+      args:
+        # Pass VITE_API_URL at build time so the compiled JS uses the right base.
+        # Leave empty to use relative URLs proxied through nginx.
+        VITE_API_URL: ${VITE_API_URL:-}
     container_name: jobrythm_frontend
     restart: unless-stopped
-    environment:
-      VITE_API_URL: ${VITE_API_URL:-http://localhost:8081}
-      VITE_STRAPI_URL: http://strapi:8082
     ports:
       - "8081:80"
       - "443:443"
     depends_on:
-      strapi:
+      api:
         condition: service_healthy
     networks:
       - jobrythm_network
 
 volumes:
-  db_data:
-    driver: local
-  strapi_uploads:
+  api_data:
     driver: local
 
 networks:

@@ -6,16 +6,22 @@ import FeaturesPage from './pages/FeaturesPage';
 import PricingPage from './pages/PricingPage';
 import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
-import BookDemoPage from './pages/BookDemoPage';
 import SecurityPage from './pages/SecurityPage';
 import PrivacyPage from './pages/PrivacyPage';
 import TermsPage from './pages/TermsPage';
 import NotFoundPage from './pages/NotFoundPage';
 import AdminPage from './pages/admin/AdminPage';
 import { usePageTracking } from './hooks/usePageTracking';
+import { useDomain } from './contexts/DomainContext';
 
 function AnalyticsTracker() {
   usePageTracking();
+  return null;
+}
+
+function BookDemoRedirect() {
+  const { signupUrl } = useDomain();
+  window.location.replace(signupUrl);
   return null;
 }
 
@@ -32,7 +38,7 @@ function App() {
             <Route path="/pricing" element={<PricingPage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/contact" element={<ContactPage />} />
-            <Route path="/book-demo" element={<BookDemoPage />} />
+            <Route path="/book-demo" element={<BookDemoRedirect />} />
             <Route path="/security" element={<SecurityPage />} />
             <Route path="/privacy" element={<PrivacyPage />} />
             <Route path="/terms" element={<TermsPage />} />

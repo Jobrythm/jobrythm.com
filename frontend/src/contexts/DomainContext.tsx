@@ -1,7 +1,7 @@
 import { createContext, useContext, useState, type ReactNode } from 'react';
 
 const STORAGE_KEY = 'jobrythm_root_domain';
-const DEFAULT_DOMAIN = 'jobrythm.com';
+const DEFAULT_DOMAIN = 'jobrythm.aricummings.com';
 
 interface DomainContextValue {
   rootDomain: string;
@@ -16,7 +16,7 @@ const DomainContext = createContext<DomainContextValue>({
   setRootDomain: () => {},
   appBaseUrl: `https://app.${DEFAULT_DOMAIN}`,
   loginUrl: `https://app.${DEFAULT_DOMAIN}/login`,
-  signupUrl: `https://app.${DEFAULT_DOMAIN}/signup`,
+  signupUrl: `https://app.${DEFAULT_DOMAIN}/register`,
 });
 
 export const useDomain = () => useContext(DomainContext);
@@ -33,7 +33,7 @@ export const DomainProvider = ({ children }: { children: ReactNode }) => {
 
   const appBaseUrl = `https://app.${rootDomain}`;
   const loginUrl = `${appBaseUrl}/login`;
-  const signupUrl = `${appBaseUrl}/signup`;
+  const signupUrl = `${appBaseUrl}/register`;
 
   return (
     <DomainContext.Provider value={{ rootDomain, setRootDomain, appBaseUrl, loginUrl, signupUrl }}>

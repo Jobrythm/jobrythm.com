@@ -1,4 +1,6 @@
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:1337';
+// Empty string → relative URL (/api/analytics/…), which nginx proxies to the
+// backend. Set VITE_API_URL at build time only if calling a remote host.
+const API_URL = import.meta.env.VITE_API_URL || '';
 const ANALYTICS_BASE = `${API_URL}/api/analytics`;
 const SESSION_KEY = 'jobrythm_analytics_session';
 

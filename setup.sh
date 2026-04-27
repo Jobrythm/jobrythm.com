@@ -42,52 +42,12 @@ fi
 if [ ! -f .env ]; then
     echo "📝 Creating .env file..."
     cp .env.example .env
-    
-    # Generate secure random keys
-    echo ""
-    echo "🔐 Generating secure keys..."
-    
-    # Function to generate a random base64 string
-    generate_key() {
-        openssl rand -base64 32 | tr -d "=+/" | cut -c1-32
-    }
-    
-    # Generate keys
-    KEY1=$(generate_key)
-    KEY2=$(generate_key)
-    KEY3=$(generate_key)
-    KEY4=$(generate_key)
-    API_SALT=$(generate_key)
-    ADMIN_SECRET=$(generate_key)
-    TRANSFER_SALT=$(generate_key)
-    JWT_SECRET=$(generate_key)
-    DB_PASSWORD=$(generate_key)
-    
-    # Update .env file
-    if [[ "$OSTYPE" == "darwin"* ]]; then
-        # macOS
-        sed -i '' "s|APP_KEYS=.*|APP_KEYS=${KEY1},${KEY2},${KEY3},${KEY4}|" .env
-        sed -i '' "s|API_TOKEN_SALT=.*|API_TOKEN_SALT=${API_SALT}|" .env
-        sed -i '' "s|ADMIN_JWT_SECRET=.*|ADMIN_JWT_SECRET=${ADMIN_SECRET}|" .env
-        sed -i '' "s|TRANSFER_TOKEN_SALT=.*|TRANSFER_TOKEN_SALT=${TRANSFER_SALT}|" .env
-        sed -i '' "s|JWT_SECRET=.*|JWT_SECRET=${JWT_SECRET}|" .env
-        sed -i '' "s|DATABASE_PASSWORD=.*|DATABASE_PASSWORD=${DB_PASSWORD}|" .env
-    else
-        # Linux
-        sed -i "s|APP_KEYS=.*|APP_KEYS=${KEY1},${KEY2},${KEY3},${KEY4}|" .env
-        sed -i "s|API_TOKEN_SALT=.*|API_TOKEN_SALT=${API_SALT}|" .env
-        sed -i "s|ADMIN_JWT_SECRET=.*|ADMIN_JWT_SECRET=${ADMIN_SECRET}|" .env
-        sed -i "s|TRANSFER_TOKEN_SALT=.*|TRANSFER_TOKEN_SALT=${TRANSFER_SALT}|" .env
-        sed -i "s|JWT_SECRET=.*|JWT_SECRET=${JWT_SECRET}|" .env
-        sed -i "s|DATABASE_PASSWORD=.*|DATABASE_PASSWORD=${DB_PASSWORD}|" .env
-    fi
-    
-    echo "✅ Generated secure keys and saved to .env"
+    echo "✅ Created .env from .env.example"
 fi
 
 echo ""
 echo "🐳 Starting Docker containers..."
-echo "This may take a few minutes on first run..."
+echo "This may take a few minutes on first run (building images)..."
 echo ""
 
 # Start Docker containers
@@ -95,17 +55,16 @@ docker compose up -d --build
 
 echo ""
 echo "⏳ Waiting for services to start..."
-sleep 10
 
-# Wait for Strapi to be ready
-echo "⏳ Waiting for Strapi to initialize (this may take 2-3 minutes)..."
-for i in {1..60}; do
-    if docker compose logs strapi | grep -q "Server started"; then
-        echo "✅ Strapi is ready!"
+# Wait for the API to be ready
+echo "⏳ Waiting for the analytics API to initialize..."
+for i in {1..30}; do
+    if docker compose logs api 2>/dev/null | grep -q "listening on port"; then
+        echo "✅ Analytics API is ready!"
         break
     fi
     echo -n "."
-    sleep 5
+    sleep 3
 done
 
 echo ""
@@ -114,14 +73,12 @@ echo "🎉 Setup Complete!"
 echo "=================="
 echo ""
 echo "📍 Your application is running at:"
-echo "   - Frontend:      http://localhost"
-echo "   - Strapi Admin:  http://localhost:1337/admin"
+echo "   - Frontend:    http://localhost:8081"
+echo "   - Admin panel: http://localhost:8081/admin-page"
 echo ""
-echo "🔐 Default Admin Credentials:"
-echo "   - Email:    admin@jobrythm.com"
+echo "🔐 Default Admin Credentials (change these in AdminLogin.tsx):"
+echo "   - Email:    admin@example.com"
 echo "   - Password: adminpassword"
-echo ""
-echo "⚠️  IMPORTANT: Change the admin password after first login!"
 echo ""
 echo "📚 Useful Commands:"
 echo "   - View logs:        docker compose logs -f"

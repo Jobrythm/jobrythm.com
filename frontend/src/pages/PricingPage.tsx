@@ -13,61 +13,57 @@ const PricingPage = () => {
   const plans = [
     {
       name: 'Starter',
-      monthlyPrice: 29,
-      annualPrice: 24,
-      description: 'Perfect for solo contractors',
+      monthlyPrice: 14,
+      annualPrice: 9,
+      description: 'Solo traders & freelancers',
       features: [
-        'Unlimited quotes',
+        'Up to 15 jobs',
+        'Quotes & invoices',
+        '1 user',
         'Basic job costing',
-        'Invoice generation',
         'Client management',
         'Mobile app access',
         'Email support',
       ],
       notIncluded: [
-        'Advanced margin insights',
+        'Client portal',
         'Team collaboration',
-        'Custom branding',
-        'Priority support',
         'API access',
       ],
     },
     {
-      name: 'Pro',
-      monthlyPrice: 79,
-      annualPrice: 66,
-      description: 'For growing trades businesses',
+      name: 'Professional',
+      monthlyPrice: 29,
+      annualPrice: 24,
+      description: 'Small teams',
       features: [
-        'Everything in Starter',
+        'Unlimited jobs',
+        'Quotes & invoices',
+        'Up to 3 users',
+        'Client portal',
         'Advanced margin insights',
-        'Team collaboration (up to 5)',
-        'Custom branding',
         'Priority support',
         'Advanced reporting',
-        'Automated workflows',
-        'Document templates',
       ],
       notIncluded: [
-        'Unlimited team members',
+        'Team collaboration',
         'API access',
-        'Dedicated support',
       ],
       featured: true,
     },
     {
-      name: 'Team',
-      monthlyPrice: 149,
-      annualPrice: 124,
-      description: 'For larger teams',
+      name: 'Business',
+      monthlyPrice: 59,
+      annualPrice: 49,
+      description: 'Growing businesses',
       features: [
-        'Everything in Pro',
-        'Unlimited team members',
+        'Everything in Professional',
+        'Team collaboration',
         'API access',
+        'Up to 10 users',
         'Advanced integrations',
         'Dedicated support',
         'Custom onboarding',
-        'SLA guarantee',
-        'Quarterly business reviews',
       ],
       notIncluded: [],
     },
@@ -88,7 +84,7 @@ const PricingPage = () => {
     },
     {
       question: 'Do you offer discounts for annual billing?',
-      answer: 'Yes! Save up to 20% by choosing annual billing. The discount is automatically applied when you toggle to annual pricing.',
+      answer: 'Yes! Save up to 36% by choosing annual billing. The discount is automatically applied when you toggle to annual pricing.',
     },
     {
       question: 'What happens when I exceed my team member limit?',
@@ -112,9 +108,9 @@ const PricingPage = () => {
     {
       category: 'Core Features',
       features: [
-        { name: 'Quotes', starter: true, pro: true, team: true },
+        { name: 'Jobs', starter: 'Up to 15', pro: 'Unlimited', team: 'Unlimited' },
+        { name: 'Quotes & invoices', starter: true, pro: true, team: true },
         { name: 'Job costing', starter: true, pro: true, team: true },
-        { name: 'Invoicing', starter: true, pro: true, team: true },
         { name: 'Client management', starter: true, pro: true, team: true },
         { name: 'Mobile app', starter: true, pro: true, team: true },
       ],
@@ -122,9 +118,8 @@ const PricingPage = () => {
     {
       category: 'Advanced Features',
       features: [
+        { name: 'Client portal', starter: false, pro: true, team: true },
         { name: 'Margin insights', starter: false, pro: true, team: true },
-        { name: 'Custom branding', starter: false, pro: true, team: true },
-        { name: 'Automated workflows', starter: false, pro: true, team: true },
         { name: 'Advanced reporting', starter: false, pro: true, team: true },
         { name: 'API access', starter: false, pro: false, team: true },
       ],
@@ -132,9 +127,9 @@ const PricingPage = () => {
     {
       category: 'Team & Collaboration',
       features: [
-        { name: 'Team members', starter: '1', pro: 'Up to 5', team: 'Unlimited' },
+        { name: 'Users', starter: '1', pro: 'Up to 3', team: 'Up to 10' },
+        { name: 'Team collaboration', starter: false, pro: false, team: true },
         { name: 'Role-based permissions', starter: false, pro: true, team: true },
-        { name: 'Team scheduling', starter: false, pro: true, team: true },
       ],
     },
     {
@@ -185,7 +180,7 @@ const PricingPage = () => {
               </button>
               <span className={`font-medium ${isAnnual ? 'text-white' : 'text-gray-400'}`}>
                 Annual
-                <span className="ml-2 text-sm text-electric-600 font-semibold">Save 20%</span>
+                <span className="ml-2 text-sm text-electric-600 font-semibold">Save up to 36%</span>
               </span>
             </div>
           </motion.div>
@@ -289,8 +284,8 @@ const PricingPage = () => {
                   <tr className="border-b border-navy-700 bg-navy-900 text-white">
                     <th className="text-left p-6 font-semibold">Features</th>
                     <th className="text-center p-6 font-semibold">Starter</th>
-                    <th className="text-center p-6 font-semibold">Pro</th>
-                    <th className="text-center p-6 font-semibold">Team</th>
+                    <th className="text-center p-6 font-semibold">Professional</th>
+                    <th className="text-center p-6 font-semibold">Business</th>
                   </tr>
                 </thead>
                 <tbody>
