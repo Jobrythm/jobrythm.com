@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Mail, Code2 } from 'lucide-react';
+import { Mail, Code2, ExternalLink } from 'lucide-react';
 import logo from '../../assets/Jobrythm.png';
 
 const Footer = () => {
@@ -14,6 +14,7 @@ const Footer = () => {
     company: [
       { name: 'About', href: '/about' },
       { name: 'Contact', href: '/contact' },
+      { name: 'Book a demo', href: '/book-demo' },
     ],
     legal: [
       { name: 'Privacy Policy', href: '/privacy' },
@@ -36,9 +37,17 @@ const Footer = () => {
               <img src={logo} alt="Jobrythm" className="h-8 w-auto brightness-0 invert" />
             </Link>
             <p className="text-sm text-gray-400 mb-4 max-w-md">
-              Win more work. Protect your margins. Quoting, job costing, invoicing, and cashflow clarity in one workflow for trades businesses.
+              Quotes to invoices in minutes. Affordable job management for contractors and tradespeople — built by a single developer who gives a damn.
             </p>
-            <div className="flex space-x-4">
+            <a
+              href="https://jobrythm.app"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 text-sm font-medium text-electric-400 hover:text-electric-300 transition-colors mb-4"
+            >
+              Open the app <ExternalLink size={14} />
+            </a>
+            <div className="flex space-x-4 mt-2">
               {socialLinks.map((social) => {
                 const Icon = social.icon;
                 return (

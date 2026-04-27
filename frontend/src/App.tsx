@@ -20,8 +20,8 @@ function AnalyticsTracker() {
 }
 
 function BookDemoRedirect() {
-  const { signupUrl } = useDomain();
-  window.location.replace(signupUrl);
+  const { demoUrl } = useDomain();
+  window.location.replace(demoUrl);
   return null;
 }
 

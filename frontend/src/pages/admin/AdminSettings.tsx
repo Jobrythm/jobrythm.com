@@ -1,16 +1,19 @@
 import { useState } from 'react';
-import { Globe, Save, RotateCcw, CheckCircle } from 'lucide-react';
+import { Globe, Save, RotateCcw, CheckCircle, Calendar } from 'lucide-react';
 import { useDomain } from '../../contexts/DomainContext';
 
 const AdminSettings = () => {
-  const { rootDomain, setRootDomain, appBaseUrl, loginUrl, signupUrl } = useDomain();
+  const { rootDomain, setRootDomain, appBaseUrl, loginUrl, signupUrl, demoUrl, setDemoUrl } = useDomain();
   const [inputDomain, setInputDomain] = useState(rootDomain);
+  const [inputDemoUrl, setInputDemoUrl] = useState(demoUrl);
   const [saved, setSaved] = useState(false);
 
   const handleSave = (e: React.FormEvent) => {
     e.preventDefault();
     const clean = inputDomain.trim().replace(/^https?:\/\//, '').replace(/\/$/, '');
     setRootDomain(clean);
+    const cleanDemo = inputDemoUrl.trim();
+    if (cleanDemo) setDemoUrl(cleanDemo);
     setSaved(true);
     setTimeout(() => setSaved(false), 3000);
   };
@@ -43,7 +46,7 @@ const AdminSettings = () => {
         </div>
         <div className="p-6 space-y-6">
           <p className="text-sm text-gray-400">
-            Set the app domain for this deployment. This affects all "Log in" and "Start free" links throughout the site.
+            Set the app domain for this deployment. This affects all "Log in" and "Try the app" links throughout the site.
           </p>
 
           {/* Preset buttons */}
@@ -68,7 +71,7 @@ const AdminSettings = () => {
             </div>
           </div>
 
-          <form onSubmit={handleSave} className="space-y-4">
+          <form onSubmit={handleSave} className="space-y-6">
             <div>
               <label className="block text-sm font-medium text-gray-300 mb-1.5">App domain</label>
               <input
@@ -80,6 +83,25 @@ const AdminSettings = () => {
               />
               <p className="mt-2 text-xs text-gray-500">
                 App URL: <span className="text-electric-400 font-mono">https://{inputDomain || 'jobrythm.app'}</span>
+              </p>
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium text-gray-300 mb-1.5">
+                <span className="inline-flex items-center gap-1">
+                  <Calendar size={14} className="text-electric-400" />
+                  Book a demo URL
+                </span>
+              </label>
+              <input
+                type="url"
+                value={inputDemoUrl}
+                onChange={e => setInputDemoUrl(e.target.value)}
+                className="w-full bg-navy-900 border border-navy-600 text-white rounded-lg px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-electric-500 focus:border-transparent text-sm"
+                placeholder="https://calendly.com/jobrythm/demo"
+              />
+              <p className="mt-2 text-xs text-gray-500">
+                Used for all "Book a demo" links across the site.
               </p>
             </div>
 
@@ -115,6 +137,7 @@ const AdminSettings = () => {
               { label: 'App base', url: appBaseUrl },
               { label: 'Login', url: loginUrl },
               { label: 'Sign up', url: signupUrl },
+              { label: 'Book demo', url: demoUrl },
             ].map(({ label, url }) => (
               <div key={label} className="flex items-center justify-between text-sm">
                 <span className="text-gray-400">{label}</span>

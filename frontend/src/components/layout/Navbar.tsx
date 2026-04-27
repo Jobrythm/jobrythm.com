@@ -56,7 +56,7 @@ const Navbar = () => {
               Log in
             </a>
             <a href={signupUrl}>
-              <Button size="sm">Start free</Button>
+              <Button size="sm">Try the app</Button>
             </a>
           </div>
 
@@ -103,7 +103,7 @@ const Navbar = () => {
                   Log in
                 </a>
                 <a href={signupUrl}>
-                  <Button fullWidth>Start free</Button>
+                  <Button fullWidth>Try the app</Button>
                 </a>
               </div>
             </div>
