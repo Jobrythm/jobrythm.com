@@ -22,7 +22,7 @@ const Footer = () => {
   };
 
   const socialLinks = [
-    { name: 'Email', icon: Mail, href: 'mailto:contact@jobrythm.com' },
+    { name: 'Email', icon: Mail, href: 'mailto:contact@jobrythm.io' },
     { name: 'GitHub', icon: Code2, href: 'https://github.com/Jobrythm' },
   ];
 

@@ -48,10 +48,10 @@ const ContactPage = () => {
                       For all questions, support requests, and feedback — email us directly.
                     </p>
                     <a
-                      href="mailto:contact@jobrythm.com"
+                      href="mailto:contact@jobrythm.io"
                       className="text-electric-400 hover:text-electric-300 transition-colors font-semibold text-lg"
                     >
-                      contact@jobrythm.com
+                      contact@jobrythm.io
                     </a>
                   </div>
                 </div>

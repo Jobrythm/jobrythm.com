@@ -71,7 +71,7 @@ const TermsPage = () => {
     },
     {
       title: '9. Documentation',
-      content: 'Jobrythm provides documentation to help you get the most out of the platform. There is no formal training program. Support is provided through documentation and via email at contact@jobrythm.com.',
+      content: 'Jobrythm provides documentation to help you get the most out of the platform. There is no formal training program. Support is provided through documentation and via email at contact@jobrythm.io.',
     },
     {
       title: '10. Intellectual Property',
@@ -115,7 +115,7 @@ const TermsPage = () => {
     },
     {
       title: '20. Contact',
-      content: 'If you have any questions about these Terms of Service, please contact us at contact@jobrythm.com.',
+      content: 'If you have any questions about these Terms of Service, please contact us at contact@jobrythm.io.',
     },
   ];
 
@@ -180,8 +180,8 @@ const TermsPage = () => {
               </p>
               <p className="text-gray-300 mb-0">
                 If you have any questions about these Terms of Service, please contact us at{' '}
-                <a href="mailto:contact@jobrythm.com" className="text-electric-400 hover:text-electric-300 font-medium">
-                  contact@jobrythm.com
+                <a href="mailto:contact@jobrythm.io" className="text-electric-400 hover:text-electric-300 font-medium">
+                  contact@jobrythm.io
                 </a>
               </p>
             </div>

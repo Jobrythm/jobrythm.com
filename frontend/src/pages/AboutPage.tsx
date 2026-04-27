@@ -124,7 +124,7 @@ const AboutPage = () => {
                 </a>
               </Card>
               <Card className="p-6">
-                <h3 className="font-bold text-white mb-2">jobrythm.com</h3>
+                <h3 className="font-bold text-white mb-2">jobrythm.io</h3>
                 <p className="text-gray-300 text-sm mb-3">This marketing site — React, TypeScript, Vite, Tailwind, Strapi CMS, Docker.</p>
                 <a
                   href="https://github.com/Jobrythm/jobrythm.com"
