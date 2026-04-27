@@ -166,7 +166,7 @@ const AdminDashboard = () => {
       {error && (
         <div className="flex items-center gap-3 bg-red-900/30 border border-red-700/50 rounded-xl px-5 py-4 text-red-300">
           <AlertCircle size={18} />
-          <span className="text-sm">{error} — is the Strapi backend running?</span>
+          <span className="text-sm">{error}</span>
         </div>
       )}
 
