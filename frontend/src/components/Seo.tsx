@@ -5,7 +5,7 @@ import { useEffect } from 'react';
  * Override at build time by setting VITE_SITE_URL.
  */
 export const SITE_URL: string = (
-  (import.meta.env.VITE_SITE_URL as string | undefined) || 'https://jobrythm.com'
+  import.meta.env.VITE_SITE_URL || 'https://jobrythm.com'
 ).replace(/\/$/, '');
 
 export const SITE_NAME = 'Jobrythm';
