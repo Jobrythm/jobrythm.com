@@ -32,7 +32,7 @@ const HomePage = () => {
     {
       icon: FileText,
       title: 'Quick Quotes',
-      description: 'Build professional quotes with line items in minutes — not hours. Templates save you time on every repeat job.',
+      description: 'Build professional quotes with line items in minutes — not hours. Recurring templates save you time on every repeat job.',
     },
     {
       icon: Calculator,
@@ -47,7 +47,7 @@ const HomePage = () => {
     {
       icon: Receipt,
       title: 'Instant Invoices',
-      description: 'Convert a quote to an invoice in one click. Send it as a PDF or by email, and track payment status.',
+      description: 'Convert a quote to an invoice in one click. Send as a PDF, accept online payment via Stripe, and track status automatically.',
     },
     {
       icon: BarChart3,
@@ -57,7 +57,7 @@ const HomePage = () => {
     {
       icon: Users,
       title: 'Client & Job History',
-      description: 'All your clients, quotes, and jobs in one place. Pull up any job history in seconds.',
+      description: 'All your clients, quotes, jobs, and invoices in one place. Client portal lets them view and pay online.',
     },
   ];
 
@@ -145,14 +145,14 @@ const HomePage = () => {
       price: '$14',
       period: '/month',
       description: 'Solo traders & freelancers',
-      features: ['Up to 15 active jobs', 'Quotes & invoices', '1 user', 'Job costing & line items', 'Client management', 'Mobile-friendly'],
+      features: ['Up to 15 active jobs', 'Quotes & invoices (PDF)', '1 user', 'Job costing & line items', 'Client management', 'Expense tracking', 'Mobile-friendly'],
     },
     {
       name: 'Professional',
       price: '$29',
       period: '/month',
       description: 'Small teams (up to 3 users)',
-      features: ['Unlimited jobs', 'Quotes & invoices', 'Up to 3 users', 'Advanced margin insights', 'Priority support', 'Advanced reporting'],
+      features: ['Unlimited jobs', 'Quotes & invoices (PDF)', 'Up to 3 users', 'Client portal', 'Recurring job templates', 'Advanced margin insights & reports', 'Priority support'],
       featured: true,
     },
     {
@@ -160,7 +160,7 @@ const HomePage = () => {
       price: '$59',
       period: '/month',
       description: 'Growing businesses',
-      features: ['Everything in Professional', 'Up to 10 users', 'Team collaboration', 'API access', 'Dedicated support'],
+      features: ['Everything in Professional', 'Up to 10 users', 'Team management with roles', 'Role-based permissions', 'Dedicated support'],
     },
   ];
 
@@ -245,8 +245,12 @@ const HomePage = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
             >
-              <div className="inline-flex items-center gap-2 bg-electric-500/10 border border-electric-500/30 text-electric-400 text-sm font-medium px-4 py-1.5 rounded-full mb-6">
-                Built by a single developer · Open source · From $14/month
+              <div className="flex items-center gap-2 bg-electric-500/10 border border-electric-500/30 text-electric-400 text-xs sm:text-sm font-medium px-4 py-1.5 rounded-full mb-6 w-fit flex-wrap justify-center">
+                <span>Built by a single developer</span>
+                <span aria-hidden="true">·</span>
+                <span>Open source</span>
+                <span aria-hidden="true">·</span>
+                <span>From $14/month</span>
               </div>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
                 Quotes to invoices.<br />
@@ -256,11 +260,11 @@ const HomePage = () => {
                 Jobrythm is the simple, affordable job management app built for contractors and tradespeople. Create quotes, track jobs, send invoices, and get paid — without the $100/month price tag.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 mb-6">
-                <a href={signupUrl}>
-                  <Button size="lg">Try the app</Button>
+                <a href={signupUrl} className="block w-full sm:w-auto">
+                  <Button size="lg" fullWidth>Try the app</Button>
                 </a>
-                <a href={demoUrl} target="_blank" rel="noopener noreferrer">
-                  <Button size="lg" variant="outline">Book a demo</Button>
+                <a href={demoUrl} target="_blank" rel="noopener noreferrer" className="block w-full sm:w-auto">
+                  <Button size="lg" variant="outline" fullWidth>Book a demo</Button>
                 </a>
               </div>
               <p className="text-sm text-gray-400">14-day free trial · No credit card required</p>
@@ -731,11 +735,11 @@ const HomePage = () => {
               Starts at $14/month. Built and supported by a single developer who actually responds.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href={signupUrl}>
-                <Button size="lg">Try the app free</Button>
+              <a href={signupUrl} className="block w-full sm:w-auto">
+                <Button size="lg" fullWidth>Try the app free</Button>
               </a>
-              <a href={demoUrl} target="_blank" rel="noopener noreferrer">
-                <Button size="lg" variant="outline" className="border-white text-white hover:bg-navy-900 hover:text-white">
+              <a href={demoUrl} target="_blank" rel="noopener noreferrer" className="block w-full sm:w-auto">
+                <Button size="lg" variant="outline" fullWidth className="border-white text-white hover:bg-navy-900 hover:text-white">
                   Book a demo
                 </Button>
               </a>

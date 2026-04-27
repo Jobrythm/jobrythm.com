@@ -230,7 +230,7 @@ const AboutPage = () => {
       {/* CTA Section */}
       <section className="py-20 lg:py-32">
         <Container>
-          <Card className="bg-gradient-to-br from-electric-500 to-electric-600 p-12 text-white text-center">
+          <Card className="bg-gradient-to-br from-electric-500 to-electric-600 p-8 md:p-12 text-white text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
               Ready to give it a try?
             </h2>
@@ -238,14 +238,15 @@ const AboutPage = () => {
               Free trial available. No demo needed — just sign up and start.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href={signupUrl}>
-                <Button size="lg" variant="secondary">
+              <a href={signupUrl} className="block w-full sm:w-auto">
+                <Button size="lg" variant="secondary" fullWidth>
                   Start free trial
                 </Button>
               </a>
-              <a href="/contact">
+              <a href="/contact" className="block w-full sm:w-auto">
                 <Button
                   size="lg"
+                  fullWidth
                   className="bg-navy-900 text-electric-600 hover:bg-gray-100"
                 >
                   Get in touch

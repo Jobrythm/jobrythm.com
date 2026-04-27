@@ -19,17 +19,18 @@ const PricingPage = () => {
       description: 'Solo traders & freelancers',
       features: [
         'Up to 15 jobs',
-        'Quotes & invoices',
+        'Quotes & invoices (with PDF)',
         '1 user',
-        'Basic job costing',
+        'Job costing & line items',
         'Client management',
-        'Mobile app access',
+        'Expense tracking',
+        'Mobile-friendly web app',
         'Email support',
       ],
       notIncluded: [
         'Client portal',
+        'Recurring jobs',
         'Team collaboration',
-        'API access',
       ],
     },
     {
@@ -39,16 +40,16 @@ const PricingPage = () => {
       description: 'Small teams',
       features: [
         'Unlimited jobs',
-        'Quotes & invoices',
+        'Quotes & invoices (with PDF)',
         'Up to 3 users',
         'Client portal',
-        'Advanced margin insights',
+        'Recurring job templates',
+        'Advanced margin insights & reports',
+        'Time tracking & appointments',
         'Priority support',
-        'Advanced reporting',
       ],
       notIncluded: [
         'Team collaboration',
-        'API access',
       ],
       featured: true,
     },
@@ -59,9 +60,9 @@ const PricingPage = () => {
       description: 'Growing businesses',
       features: [
         'Everything in Professional',
-        'Team collaboration',
-        'API access',
         'Up to 10 users',
+        'Team management with roles',
+        'Role-based permissions',
         'Advanced integrations',
         'Dedicated support',
         'Custom onboarding',
@@ -110,27 +111,29 @@ const PricingPage = () => {
       category: 'Core Features',
       features: [
         { name: 'Jobs', starter: 'Up to 15', pro: 'Unlimited', team: 'Unlimited' },
-        { name: 'Quotes & invoices', starter: true, pro: true, team: true },
-        { name: 'Job costing', starter: true, pro: true, team: true },
+        { name: 'Quotes & invoices (with PDF)', starter: true, pro: true, team: true },
+        { name: 'Job costing & line items', starter: true, pro: true, team: true },
         { name: 'Client management', starter: true, pro: true, team: true },
-        { name: 'Mobile app', starter: true, pro: true, team: true },
+        { name: 'Expense tracking', starter: true, pro: true, team: true },
+        { name: 'Mobile-friendly web app', starter: true, pro: true, team: true },
       ],
     },
     {
       category: 'Advanced Features',
       features: [
         { name: 'Client portal', starter: false, pro: true, team: true },
-        { name: 'Margin insights', starter: false, pro: true, team: true },
-        { name: 'Advanced reporting', starter: false, pro: true, team: true },
-        { name: 'API access', starter: false, pro: false, team: true },
+        { name: 'Recurring job templates', starter: false, pro: true, team: true },
+        { name: 'Margin insights & reports', starter: false, pro: true, team: true },
+        { name: 'Time tracking & appointments', starter: false, pro: true, team: true },
+        { name: 'Checklists & quality control', starter: false, pro: true, team: true },
       ],
     },
     {
       category: 'Team & Collaboration',
       features: [
         { name: 'Users', starter: '1', pro: 'Up to 3', team: 'Up to 10' },
-        { name: 'Team collaboration', starter: false, pro: false, team: true },
-        { name: 'Role-based permissions', starter: false, pro: true, team: true },
+        { name: 'Team management', starter: false, pro: false, team: true },
+        { name: 'Role-based permissions', starter: false, pro: false, team: true },
       ],
     },
     {
@@ -167,7 +170,7 @@ const PricingPage = () => {
             </p>
 
             {/* Billing Toggle */}
-            <div className="flex items-center justify-center space-x-4 mb-12">
+            <div className="flex items-center justify-center gap-3 mb-12 flex-wrap">
               <span className={`font-medium ${!isAnnual ? 'text-white' : 'text-gray-400'}`}>
                 Monthly
               </span>
@@ -186,8 +189,12 @@ const PricingPage = () => {
               </button>
               <span className={`font-medium ${isAnnual ? 'text-white' : 'text-gray-400'}`}>
                 Annual
-                <span className="ml-2 text-sm text-electric-600 font-semibold">Save up to 36%</span>
               </span>
+              {isAnnual && (
+                <span className="text-xs text-electric-400 font-semibold px-2 py-0.5 bg-electric-500/10 rounded-full whitespace-nowrap">
+                  Save up to 36%
+                </span>
+              )}
             </div>
           </motion.div>
         </Container>
@@ -285,13 +292,13 @@ const PricingPage = () => {
 
           <Card className="overflow-hidden">
             <div className="overflow-x-auto">
-              <table className="w-full">
+              <table className="w-full min-w-[600px]">
                 <thead>
                   <tr className="border-b border-navy-700 bg-navy-900 text-white">
-                    <th className="text-left p-6 font-semibold">Features</th>
-                    <th className="text-center p-6 font-semibold">Starter</th>
-                    <th className="text-center p-6 font-semibold">Professional</th>
-                    <th className="text-center p-6 font-semibold">Business</th>
+                    <th className="text-left p-4 md:p-6 font-semibold">Features</th>
+                    <th className="text-center p-4 md:p-6 font-semibold">Starter</th>
+                    <th className="text-center p-4 md:p-6 font-semibold">Professional</th>
+                    <th className="text-center p-4 md:p-6 font-semibold">Business</th>
                   </tr>
                 </thead>
                 <tbody>

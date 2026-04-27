@@ -22,6 +22,12 @@ function sanitizeUrl(url: string, fallback: string): string {
   return fallback;
 }
 
+/** Allow only valid domain characters to prevent injection via rootDomain. */
+function sanitizeDomain(domain: string): string {
+  // Allow letters, numbers, hyphens, dots (standard hostname characters)
+  return /^[a-zA-Z0-9.-]+$/.test(domain) ? domain : DEFAULT_DOMAIN;
+}
+
 interface DomainContextValue {
   rootDomain: string;
   setRootDomain: (domain: string) => void;
@@ -46,7 +52,7 @@ export const useDomain = () => useContext(DomainContext);
 
 export const DomainProvider = ({ children }: { children: ReactNode }) => {
   const [rootDomain, setRootDomainState] = useState<string>(() => {
-    return localStorage.getItem(STORAGE_KEY) || DEFAULT_DOMAIN;
+    return sanitizeDomain(localStorage.getItem(STORAGE_KEY) || DEFAULT_DOMAIN);
   });
 
   const [demoUrl, setDemoUrlState] = useState<string>(() => {
@@ -55,8 +61,9 @@ export const DomainProvider = ({ children }: { children: ReactNode }) => {
   });
 
   const setRootDomain = (domain: string) => {
-    localStorage.setItem(STORAGE_KEY, domain);
-    setRootDomainState(domain);
+    const safe = sanitizeDomain(domain);
+    localStorage.setItem(STORAGE_KEY, safe);
+    setRootDomainState(safe);
   };
 
   const setDemoUrl = (url: string) => {
