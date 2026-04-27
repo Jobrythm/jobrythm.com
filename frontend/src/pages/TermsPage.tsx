@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import Container from '../components/ui/Container';
+import Seo from '../components/Seo';
 
 const TermsPage = () => {
   const sections = [
@@ -121,6 +122,11 @@ const TermsPage = () => {
 
   return (
     <div className="bg-navy-900">
+      <Seo
+        title="Terms of Service"
+        description="The Jobrythm terms of service governing your use of our quoting, job costing, and invoicing platform."
+        path="/terms"
+      />
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-navy-800 to-navy-900 py-20 lg:py-32">
         <Container>

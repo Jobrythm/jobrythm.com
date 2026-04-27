@@ -3,12 +3,18 @@ import { Home, Search, ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Button from '../components/ui/Button';
 import Container from '../components/ui/Container';
+import Seo from '../components/Seo';
 import { useDomain } from '../contexts/DomainContext';
 
 const NotFoundPage = () => {
   const { signupUrl } = useDomain();
   return (
     <div className="bg-navy-900 min-h-screen flex items-center justify-center">
+      <Seo
+        title="Page not found"
+        description="The page you're looking for doesn't exist. Head back to the Jobrythm home page or explore our features and pricing."
+        noindex
+      />
       <Container>
         <motion.div
           initial={{ opacity: 0, y: 20 }}

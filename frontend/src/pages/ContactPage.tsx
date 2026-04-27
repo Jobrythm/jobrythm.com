@@ -3,6 +3,7 @@ import { Mail, MapPin } from 'lucide-react';
 import Button from '../components/ui/Button';
 import Card from '../components/ui/Card';
 import Container from '../components/ui/Container';
+import Seo from '../components/Seo';
 import { useDomain } from '../contexts/DomainContext';
 
 const ContactPage = () => {
@@ -10,6 +11,11 @@ const ContactPage = () => {
 
   return (
     <div className="bg-navy-900">
+      <Seo
+        title="Contact"
+        description="Get in touch with the Jobrythm team. We're here to answer questions about quoting, job costing, invoicing, and how Jobrythm fits your trades business."
+        path="/contact"
+      />
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-navy-800 to-navy-900 py-20 lg:py-32">
         <Container>

@@ -4,6 +4,7 @@ import AdminLogin from './AdminLogin';
 import AdminLayout from './AdminLayout';
 import AdminDashboard from './AdminDashboard';
 import AdminSettings from './AdminSettings';
+import Seo from '../../components/Seo';
 
 const ADMIN_SESSION_KEY = 'jobrythm_admin_session';
 
@@ -23,17 +24,25 @@ const AdminPage = () => {
   };
 
   if (!isAuthenticated) {
-    return <AdminLogin onLogin={handleLogin} />;
+    return (
+      <>
+        <Seo title="Admin" description="Jobrythm admin area." noindex />
+        <AdminLogin onLogin={handleLogin} />
+      </>
+    );
   }
 
   return (
-    <Routes>
-      <Route element={<AdminLayout onLogout={handleLogout} />}>
-        <Route index element={<AdminDashboard />} />
-        <Route path="settings" element={<AdminSettings />} />
-        <Route path="*" element={<Navigate to="/admin-page" replace />} />
-      </Route>
-    </Routes>
+    <>
+      <Seo title="Admin" description="Jobrythm admin area." noindex />
+      <Routes>
+        <Route element={<AdminLayout onLogout={handleLogout} />}>
+          <Route index element={<AdminDashboard />} />
+          <Route path="settings" element={<AdminSettings />} />
+          <Route path="*" element={<Navigate to="/admin-page" replace />} />
+        </Route>
+      </Routes>
+    </>
   );
 };
 
