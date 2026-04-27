@@ -20,8 +20,12 @@ function AnalyticsTracker() {
 }
 
 function BookDemoRedirect() {
-  const { signupUrl } = useDomain();
-  window.location.replace(signupUrl);
+  const { demoUrl } = useDomain();
+  // Guard against non-http(s) protocols even though DomainContext sanitizes demoUrl.
+  const safe = /^https?:\/\//i.test(demoUrl) || demoUrl.startsWith('/');
+  if (safe) {
+    window.location.replace(demoUrl);
+  }
   return null;
 }
 
