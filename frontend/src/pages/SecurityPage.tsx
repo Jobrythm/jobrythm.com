@@ -241,9 +241,9 @@ const SecurityPage = () => {
                 <h3 className="text-2xl font-bold text-white mb-6">Tech Stack</h3>
                 <div className="space-y-4">
                   {techStack.map((item, index) => (
-                    <div key={index} className="flex justify-between items-center py-3 border-b border-navy-700 last:border-0">
+                    <div key={index} className="flex flex-wrap justify-between items-center gap-2 py-3 border-b border-navy-700 last:border-0">
                       <span className="text-gray-400 text-sm font-medium">{item.label}</span>
-                      <span className="text-white text-sm font-semibold">{item.value}</span>
+                      <span className="text-white text-sm font-semibold text-right">{item.value}</span>
                     </div>
                   ))}
                 </div>
@@ -326,7 +326,7 @@ const SecurityPage = () => {
       {/* Contact for Security */}
       <section className="py-20 lg:py-32">
         <Container>
-          <Card className="bg-gradient-to-br from-electric-500 to-electric-600 p-12 text-white text-center">
+          <Card className="bg-gradient-to-br from-electric-500 to-electric-600 p-8 md:p-12 text-white text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
               Found a security issue?
             </h2>
@@ -334,14 +334,15 @@ const SecurityPage = () => {
               If you discover a vulnerability, please disclose it responsibly. Email us and we'll respond promptly.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="mailto:contact@jobrythm.io">
-                <Button size="lg" variant="secondary">
+              <a href="mailto:contact@jobrythm.io" className="block w-full sm:w-auto">
+                <Button size="lg" variant="secondary" fullWidth>
                   contact@jobrythm.io
                 </Button>
               </a>
-              <a href={signupUrl}>
+              <a href={signupUrl} className="block w-full sm:w-auto">
                 <Button
                   size="lg"
+                  fullWidth
                   className="bg-navy-900 text-electric-600 hover:bg-gray-100"
                 >
                   Start free trial

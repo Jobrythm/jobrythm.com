@@ -245,8 +245,12 @@ const HomePage = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
             >
-              <div className="inline-flex items-center gap-2 bg-electric-500/10 border border-electric-500/30 text-electric-400 text-sm font-medium px-4 py-1.5 rounded-full mb-6">
-                Built by a single developer · Open source · From $14/month
+              <div className="flex items-center gap-2 bg-electric-500/10 border border-electric-500/30 text-electric-400 text-xs sm:text-sm font-medium px-4 py-1.5 rounded-full mb-6 w-fit flex-wrap justify-center">
+                <span>Built by a single developer</span>
+                <span aria-hidden="true">·</span>
+                <span>Open source</span>
+                <span aria-hidden="true">·</span>
+                <span>From $14/month</span>
               </div>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
                 Quotes to invoices.<br />
@@ -256,11 +260,11 @@ const HomePage = () => {
                 Jobrythm is the simple, affordable job management app built for contractors and tradespeople. Create quotes, track jobs, send invoices, and get paid — without the $100/month price tag.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 mb-6">
-                <a href={signupUrl}>
-                  <Button size="lg">Try the app</Button>
+                <a href={signupUrl} className="block w-full sm:w-auto">
+                  <Button size="lg" fullWidth>Try the app</Button>
                 </a>
-                <a href={demoUrl} target="_blank" rel="noopener noreferrer">
-                  <Button size="lg" variant="outline">Book a demo</Button>
+                <a href={demoUrl} target="_blank" rel="noopener noreferrer" className="block w-full sm:w-auto">
+                  <Button size="lg" variant="outline" fullWidth>Book a demo</Button>
                 </a>
               </div>
               <p className="text-sm text-gray-400">14-day free trial · No credit card required</p>
@@ -731,11 +735,11 @@ const HomePage = () => {
               Starts at $14/month. Built and supported by a single developer who actually responds.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href={signupUrl}>
-                <Button size="lg">Try the app free</Button>
+              <a href={signupUrl} className="block w-full sm:w-auto">
+                <Button size="lg" fullWidth>Try the app free</Button>
               </a>
-              <a href={demoUrl} target="_blank" rel="noopener noreferrer">
-                <Button size="lg" variant="outline" className="border-white text-white hover:bg-navy-900 hover:text-white">
+              <a href={demoUrl} target="_blank" rel="noopener noreferrer" className="block w-full sm:w-auto">
+                <Button size="lg" variant="outline" fullWidth className="border-white text-white hover:bg-navy-900 hover:text-white">
                   Book a demo
                 </Button>
               </a>

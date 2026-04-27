@@ -290,7 +290,7 @@ const FeaturesPage = () => {
       {/* Feature Sections */}
       <section className="py-20 lg:py-32">
         <Container>
-          <div className="space-y-32">
+          <div className="space-y-20 lg:space-y-32">
             {features.map((feature, index) => {
               const Icon = feature.icon;
               const isEven = index % 2 === 0;
@@ -354,20 +354,20 @@ const FeaturesPage = () => {
 
           <Card className="overflow-hidden">
             <div className="overflow-x-auto">
-              <table className="w-full">
+              <table className="w-full min-w-[560px]">
                 <thead>
                   <tr className="border-b border-navy-700">
-                    <th className="text-left p-6 text-white font-semibold">Feature</th>
-                    <th className="text-center p-6 text-white font-semibold">Spreadsheets</th>
-                    <th className="text-center p-6 text-electric-600 font-semibold">Jobrythm</th>
+                    <th className="text-left p-4 md:p-6 text-white font-semibold">Feature</th>
+                    <th className="text-center p-4 md:p-6 text-white font-semibold">Spreadsheets</th>
+                    <th className="text-center p-4 md:p-6 text-electric-600 font-semibold">Jobrythm</th>
                   </tr>
                 </thead>
                 <tbody>
                   {comparison.categories.map((category, index) => (
                     <tr key={index} className="border-b border-gray-100 last:border-b-0">
-                      <td className="p-6 text-white font-medium">{category}</td>
-                      <td className="p-6 text-center text-gray-300">{comparison.spreadsheets[index]}</td>
-                      <td className="p-6 text-center text-white font-medium bg-electric-50">
+                      <td className="p-4 md:p-6 text-white font-medium">{category}</td>
+                      <td className="p-4 md:p-6 text-center text-gray-300">{comparison.spreadsheets[index]}</td>
+                      <td className="p-4 md:p-6 text-center text-white font-medium bg-electric-50">
                         {comparison.jobrythm[index]}
                       </td>
                     </tr>
@@ -388,7 +388,7 @@ const FeaturesPage = () => {
       {/* CTA Section */}
       <section className="py-20 lg:py-32">
         <Container>
-          <Card className="bg-gradient-to-br from-electric-500 to-electric-600 p-12 text-white text-center">
+          <Card className="bg-gradient-to-br from-electric-500 to-electric-600 p-8 md:p-12 text-white text-center">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
               Ready to streamline your workflow?
             </h2>
@@ -396,14 +396,15 @@ const FeaturesPage = () => {
               Join trades teams who are saving time and increasing profits with Jobrythm.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href={signupUrl}>
-                <Button size="lg" variant="secondary">
+              <a href={signupUrl} className="block w-full sm:w-auto">
+                <Button size="lg" variant="secondary" fullWidth>
                   Start free trial
                 </Button>
               </a>
-              <a href="/book-demo">
+              <a href="/book-demo" className="block w-full sm:w-auto">
                 <Button
                   size="lg"
+                  fullWidth
                   className="bg-navy-900 text-electric-600 hover:bg-gray-100"
                 >
                   Book a demo

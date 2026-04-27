@@ -170,7 +170,7 @@ const PricingPage = () => {
             </p>
 
             {/* Billing Toggle */}
-            <div className="flex items-center justify-center space-x-4 mb-12">
+            <div className="flex items-center justify-center gap-3 mb-12 flex-wrap">
               <span className={`font-medium ${!isAnnual ? 'text-white' : 'text-gray-400'}`}>
                 Monthly
               </span>
@@ -189,8 +189,12 @@ const PricingPage = () => {
               </button>
               <span className={`font-medium ${isAnnual ? 'text-white' : 'text-gray-400'}`}>
                 Annual
-                <span className="ml-2 text-sm text-electric-600 font-semibold">Save up to 36%</span>
               </span>
+              {isAnnual && (
+                <span className="text-xs text-electric-400 font-semibold px-2 py-0.5 bg-electric-500/10 rounded-full whitespace-nowrap">
+                  Save up to 36%
+                </span>
+              )}
             </div>
           </motion.div>
         </Container>
@@ -288,13 +292,13 @@ const PricingPage = () => {
 
           <Card className="overflow-hidden">
             <div className="overflow-x-auto">
-              <table className="w-full">
+              <table className="w-full min-w-[600px]">
                 <thead>
                   <tr className="border-b border-navy-700 bg-navy-900 text-white">
-                    <th className="text-left p-6 font-semibold">Features</th>
-                    <th className="text-center p-6 font-semibold">Starter</th>
-                    <th className="text-center p-6 font-semibold">Professional</th>
-                    <th className="text-center p-6 font-semibold">Business</th>
+                    <th className="text-left p-4 md:p-6 font-semibold">Features</th>
+                    <th className="text-center p-4 md:p-6 font-semibold">Starter</th>
+                    <th className="text-center p-4 md:p-6 font-semibold">Professional</th>
+                    <th className="text-center p-4 md:p-6 font-semibold">Business</th>
                   </tr>
                 </thead>
                 <tbody>
