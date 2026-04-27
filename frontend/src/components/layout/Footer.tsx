@@ -111,8 +111,14 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-navy-800 text-center text-sm text-gray-400">
+        <div className="pt-8 border-t border-navy-800 flex flex-col sm:flex-row items-center justify-between gap-2 text-sm text-gray-400">
           <p>&copy; {currentYear} Jobrythm. All rights reserved.</p>
+          <Link
+            to="/admin-page"
+            className="text-gray-600 hover:text-gray-400 transition-colors text-xs"
+          >
+            Admin
+          </Link>
         </div>
       </div>
     </footer>
