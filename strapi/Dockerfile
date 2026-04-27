@@ -19,8 +19,8 @@ COPY . .
 ENV NODE_ENV=production
 RUN npm run build
 
-# Expose Strapi port
-EXPOSE 1337
+# Expose Strapi port (set via PORT env var in docker-compose)
+EXPOSE 8082
 
 # Start Strapi
 CMD ["npm", "start"]

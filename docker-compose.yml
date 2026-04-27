@@ -25,6 +25,12 @@ services:
       dockerfile: Dockerfile
     container_name: jobrythm_strapi
     restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "--spider", "-q", "http://localhost:8082/_health"]
+      interval: 30s
+      timeout: 10s
+      retries: 10
+      start_period: 120s
     environment:
       DATABASE_CLIENT: postgres
       DATABASE_HOST: database
@@ -68,7 +74,8 @@ services:
       - "8081:80"
       - "443:443"
     depends_on:
-      - strapi
+      strapi:
+        condition: service_healthy
     networks:
       - jobrythm_network
 
