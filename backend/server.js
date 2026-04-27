@@ -4,6 +4,7 @@ const path = require('path');
 const fs = require('fs');
 const express = require('express');
 const cors = require('cors');
+const rateLimit = require('express-rate-limit');
 const Database = require('better-sqlite3');
 
 // ---------------------------------------------------------------------------
@@ -39,6 +40,22 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+// Rate limiting: track/duration are fire-and-forget per page view so a generous
+// limit of 120 req/min per IP is enough to absorb normal browsing while blocking
+// bulk abuse. The stats endpoint is admin-only so we restrict it more tightly.
+const trackLimiter = rateLimit({
+  windowMs: 60 * 1000,
+  max: 120,
+  standardHeaders: true,
+  legacyHeaders: false,
+});
+const statsLimiter = rateLimit({
+  windowMs: 60 * 1000,
+  max: 30,
+  standardHeaders: true,
+  legacyHeaders: false,
+});
+
 // ---------------------------------------------------------------------------
 // Health check
 // ---------------------------------------------------------------------------
@@ -49,7 +66,7 @@ app.get('/_health', (_req, res) => res.json({ ok: true }));
 // POST /api/analytics/track
 // ---------------------------------------------------------------------------
 
-app.post('/api/analytics/track', (req, res) => {
+app.post('/api/analytics/track', trackLimiter, (req, res) => {
   const { sessionId, page, referrer } = req.body || {};
   if (!sessionId || !page) {
     return res.status(400).json({ error: 'sessionId and page are required' });
@@ -66,10 +83,13 @@ app.post('/api/analytics/track', (req, res) => {
 // POST /api/analytics/duration
 // ---------------------------------------------------------------------------
 
-app.post('/api/analytics/duration', (req, res) => {
+app.post('/api/analytics/duration', trackLimiter, (req, res) => {
   const { id, durationMs } = req.body || {};
   if (!id || durationMs == null) {
     return res.status(400).json({ error: 'id and durationMs are required' });
+  }
+  if (typeof durationMs !== 'number' || durationMs < 0 || durationMs > 86400000) {
+    return res.status(400).json({ error: 'durationMs must be a number between 0 and 86400000' });
   }
 
   db.prepare('UPDATE analytics_page_views SET duration_ms = ? WHERE id = ?')
@@ -81,7 +101,7 @@ app.post('/api/analytics/duration', (req, res) => {
 // GET /api/analytics/stats?days=7
 // ---------------------------------------------------------------------------
 
-app.get('/api/analytics/stats', (req, res) => {
+app.get('/api/analytics/stats', statsLimiter, (req, res) => {
   const days = parseInt(req.query.days || '7', 10);
   const since = new Date(Date.now() - days * 24 * 60 * 60 * 1000).toISOString();
 
